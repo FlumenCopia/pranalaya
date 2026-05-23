@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranalaya & Alaya — FlumenX Marketing Masterplan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:    #0D2B1F;
+  --forest-2:  #1A4A32;
+  --forest-3:  #245c3e;
+  --sage:      #5BA88A;
+  --sage-light:#8ac4a8;
+  --gold:      #C9A84C;
+  --gold-dim:  rgba(201,168,76,0.12);
+  --cream:     #F5F0E8;
+  --cream-2:   #EDE6D6;
+  --rose:      #C4836A;
+  --rose-dim:  rgba(196,131,106,0.12);
+  --ink:       #1a1f1c;
+  --ink-2:     #252b26;
+  --ink-3:     #2e3630;
+  --border:    rgba(255,255,255,0.08);
+  --border-2:  rgba(255,255,255,0.14);
+  --text:      #e8e2d6;
+  --text-dim:  #7d8a7f;
+  --text-mid:  #a8b4a2;
+  --radius:    4px;
+  --radius-lg: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:2px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;width:230px;height:100vh;background:var(--forest);border-right:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;padding:28px 0 20px;overflow-y:auto;z-index:100}
+.nav-logo{padding:0 22px 24px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:16px}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.12em;color:var(--cream);text-transform:uppercase}
+.nav-sub{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.22em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-top:3px}
+.nav-group-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.22em;color:rgba(255,255,255,0.3);text-transform:uppercase;padding:0 22px 8px;margin-top:6px}
+nav a{display:flex;align-items:center;gap:9px;padding:8px 22px;color:rgba(255,255,255,0.45);text-decoration:none;font-size:12.5px;font-weight:400;letter-spacing:0.02em;transition:color .2s,background .2s;border-left:2px solid transparent}
+nav a:hover{color:var(--cream);background:rgba(255,255,255,0.04)}
+nav a.active{border-left-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.06)}
+nav a svg{width:12px;height:12px;opacity:.7;flex-shrink:0}
+nav a:hover svg,nav a.active svg{opacity:1}
+.nav-divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:12px 0}
+.nav-foot{margin-top:auto;padding:14px 22px;font-size:9px;color:rgba(255,255,255,0.25);font-family:'DM Mono',monospace;border-top:1px solid rgba(255,255,255,0.06);letter-spacing:0.08em;line-height:1.6}
+
+/* ── MAIN ── */
+main{margin-left:230px;min-height:100vh}
+section{padding:72px 60px;border-bottom:1px solid rgba(255,255,255,0.05)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:72px 60px;background:linear-gradient(160deg,#0a1f12 0%,#0D2B1F 45%,#152a1c 100%);border-bottom:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;max-width:none}
+.hero-bg-text{position:absolute;top:50%;right:-10px;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(120px,14vw,220px);font-weight:300;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.03em}
+.hero-accent-line{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),var(--sage));margin-bottom:28px}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.26em;color:var(--text-dim);text-transform:uppercase;margin-bottom:20px}
+h1.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,68px);font-weight:300;line-height:1.05;color:var(--cream);margin-bottom:20px}
+h1.hero-title span{color:var(--gold)}
+.hero-lead{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.6vw,19px);font-weight:300;font-style:italic;color:var(--text-mid);max-width:620px;line-height:1.6;margin-bottom:36px}
+.hero-meta{display:flex;gap:36px;flex-wrap:wrap}
+.hm-item{display:flex;flex-direction:column;gap:3px}
+.hm-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase}
+.hm-value{font-size:13px;color:var(--text-mid)}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.tag{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 11px;border:1px solid rgba(255,255,255,0.12);border-radius:100px;color:var(--text-dim)}
+
+/* ── TYPOGRAPHY ── */
+.kicker{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.26em;color:var(--text-dim);text-transform:uppercase;display:block;margin-bottom:14px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:400;line-height:1.15;color:var(--cream);margin-bottom:8px}
+h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--cream);margin-bottom:10px}
+h4{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);font-family:'DM Mono',monospace;margin-bottom:12px;font-weight:400}
+p{color:var(--text-mid);font-size:14px;line-height:1.75;margin-bottom:14px;max-width:680px}
+.lead{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,1.7vw,20px);font-weight:300;font-style:italic;color:var(--text-mid);line-height:1.55;max-width:700px;margin-bottom:28px}
+.sec-header{display:flex;align-items:baseline;gap:20px;margin-bottom:44px}
+.sec-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:0.1em;flex-shrink:0}
+.sec-line{flex:1;height:1px;background:rgba(255,255,255,0.07)}
+
+/* ── CARDS ── */
+.card{background:var(--ink-2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius-lg);padding:26px 28px}
+.card-gold{border-left:3px solid var(--gold)}
+.card-sage{border-left:3px solid var(--sage)}
+.card-rose{border-left:3px solid var(--rose)}
+
+/* ── GRID ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){main{margin-left:0}nav{display:none}section{padding:48px 24px}.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* ── STAT BLOCK ── */
+.stat{background:var(--ink-2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius);padding:22px 20px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--cream);line-height:1}
+.stat-label{font-size:11.5px;color:var(--text-dim);margin-top:4px;line-height:1.4}
+.stat-src{font-family:'DM Mono',monospace;font-size:8px;color:rgba(255,255,255,0.2);margin-top:5px}
+
+/* ── ISSUE LIST ── */
+.issue-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.issue-item:last-child{border-bottom:none}
+.issue-badge{flex-shrink:0;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-top:3px;white-space:nowrap;height:fit-content}
+.ib-critical{background:rgba(196,70,58,0.15);color:#e06b62}
+.ib-high{background:rgba(196,131,106,0.15);color:var(--rose)}
+.ib-medium{background:rgba(201,168,76,0.12);color:var(--gold)}
+.ib-low{background:rgba(91,168,138,0.12);color:var(--sage)}
+.issue-text{font-size:13px;color:var(--text-dim);line-height:1.6}
+.issue-text strong{color:var(--text-mid);font-weight:500}
+
+/* ── KEYWORD TABLE ── */
+.kw-table{width:100%;border-collapse:collapse;font-size:13px}
+.kw-table th{text-align:left;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.1);font-weight:400}
+.kw-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-mid);vertical-align:middle}
+.kw-table tr:last-child td{border-bottom:none}
+.kw-table tr:hover td{background:rgba(255,255,255,0.015)}
+.kw-table td:first-child{color:var(--text);font-weight:500}
+.vol-bar{height:5px;background:rgba(255,255,255,0.06);border-radius:3px;width:120px;overflow:hidden;display:inline-block}
+.vol-fill{height:100%;border-radius:3px}
+.kw-high{background:var(--sage)}
+.kw-med{background:var(--gold)}
+.kw-low{background:rgba(255,255,255,0.2)}
+.intent-badge{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px}
+.intent-trans{background:rgba(91,168,138,0.15);color:var(--sage)}
+.intent-comm{background:rgba(201,168,76,0.12);color:var(--gold)}
+.intent-info{background:rgba(255,255,255,0.07);color:var(--text-dim)}
+
+/* ── PRICING CARDS ── */
+.pkg-card{background:var(--ink-2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius-lg);overflow:hidden;position:relative;transition:border-color .3s}
+.pkg-card:hover{border-color:rgba(255,255,255,0.14)}
+.pkg-card.featured{border-color:var(--gold)}
+.pkg-top{padding:24px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.pkg-name{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.pkg-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--cream);margin-bottom:4px}
+.pkg-desc{font-size:12px;color:var(--text-dim);line-height:1.5}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--cream);line-height:1;margin-top:14px}
+.pkg-price span{font-size:14px;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--text-dim)}
+.pkg-body{padding:18px 24px 24px}
+.pkg-feat{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--text-dim);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.5}
+.pkg-feat:last-of-type{border-bottom:none}
+.pkg-feat-icon{flex-shrink:0;margin-top:3px}
+.pkg-feat strong{color:var(--text-mid);font-weight:500}
+.pkg-feat.highlight{color:var(--gold)}
+.pkg-feat.highlight strong{color:var(--gold)}
+.featured-tag{position:absolute;top:12px;right:12px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;background:var(--gold-dim);color:var(--gold);border:1px solid rgba(201,168,76,0.3);border-radius:2px}
+
+/* ── PULL QUOTE ── */
+.pull-quote{border-left:3px solid var(--gold);padding:18px 24px;margin:28px 0;background:var(--gold-dim);border-radius:0 var(--radius) var(--radius) 0}
+.pull-quote p{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,1.8vw,20px);font-style:italic;font-weight:300;color:var(--cream);margin-bottom:0;max-width:none;line-height:1.5}
+
+/* ── TIMELINE ── */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:rgba(255,255,255,0.1)}
+.tl-item{position:relative;padding-bottom:28px}
+.tl-item::before{content:'';position:absolute;left:-30px;top:7px;width:8px;height:8px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:var(--ink)}
+.tl-item.done::before{background:var(--gold);border-color:var(--gold)}
+.tl-item.active::before{background:var(--sage);border-color:var(--sage)}
+.tl-week{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;color:var(--text-dim);margin-bottom:4px;text-transform:uppercase}
+.tl-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:var(--cream);margin-bottom:5px}
+.tl-body{font-size:12.5px;color:var(--text-dim);line-height:1.6;max-width:580px}
+
+/* ── TASK TAG ── */
+.tt{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.09em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.tt-sm{background:rgba(91,168,138,0.15);color:var(--sage)}
+.tt-mk{background:rgba(201,168,76,0.12);color:var(--gold)}
+.tt-web{background:rgba(196,131,106,0.12);color:var(--rose)}
+.tt-br{background:rgba(138,106,184,0.15);color:#a088cc}
+.tt-vid{background:rgba(74,145,184,0.12);color:#6ab4d8}
+.tt-client{background:rgba(255,255,255,0.07);color:var(--text-dim)}
+
+/* ── EXEC TASK ROW ── */
+.task-row{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:12.5px;color:var(--text-dim)}
+.task-row:last-child{border-bottom:none}
+.task-row strong{color:var(--text-mid)}
+
+/* ── WARN BOX ── */
+.warn-box{background:rgba(196,70,58,0.06);border:1px solid rgba(196,70,58,0.2);border-radius:var(--radius-lg);padding:22px 24px;margin:20px 0}
+.warn-box h4{color:#e06b62;margin-bottom:10px}
+
+/* ── INFO BOX ── */
+.info-box{background:rgba(91,168,138,0.06);border:1px solid rgba(91,168,138,0.2);border-radius:var(--radius-lg);padding:22px 24px;margin:20px 0}
+.info-box h4{color:var(--sage);margin-bottom:10px}
+
+/* ── PHASE BLOCK ── */
+.phase-block{background:var(--ink-2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius-lg);padding:26px 28px}
+.phase-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+.phase-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);margin-bottom:14px}
+
+/* ── OVERVIEW GRID ── */
+.ov-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-lg);overflow:hidden;margin:28px 0}
+.ov-cell{background:var(--ink-2);padding:20px 18px}
+.ov-num{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--cream);line-height:1}
+.ov-label{font-size:11px;color:var(--text-dim);margin-top:4px;line-height:1.4}
+@media(max-width:700px){.ov-grid{grid-template-columns:1fr 1fr}}
+
+/* ── TAB SYSTEM ── */
+.tab-bar{display:flex;gap:2px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:28px;flex-wrap:wrap}
+.tab-btn{background:none;border:none;color:var(--text-dim);font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;padding:11px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.tab-btn:hover{color:var(--text-mid)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* ── COMPARISON TABLE ── */
+.cmp-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
+.cmp-table th{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.1);text-align:left;font-weight:400}
+.cmp-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-dim);vertical-align:top;line-height:1.5}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table td:first-child{color:var(--text-mid);font-weight:500}
+.cmp-good{color:var(--sage) !important}
+.cmp-bad{color:#e06b62 !important}
+.cmp-highlight td{background:rgba(201,168,76,0.04)}
+.cmp-highlight td:first-child{color:var(--gold) !important}
+
+/* ── ROAD MAP STRIP ── */
+.roadmap-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.rm-phase{background:var(--ink-2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius-lg);padding:22px 22px;position:relative;overflow:hidden}
+.rm-phase::before{content:attr(data-num);position:absolute;right:-8px;bottom:-14px;font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none}
+.rm-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+.rm-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--cream);margin-bottom:12px}
+
+/* ── AMAL BOX ── */
+.amal-box{background:linear-gradient(135deg,rgba(91,168,138,0.06),rgba(201,168,76,0.06));border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius-lg);padding:24px 28px;margin-top:24px}
+
+/* ── MISC ── */
+.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}.mt40{margin-top:40px}.mt48{margin-top:48px}
+.mb16{margin-bottom:16px}.mb24{margin-bottom:24px}.mb32{margin-bottom:32px}
+.text-gold{color:var(--gold)}.text-sage{color:var(--sage)}.text-rose{color:var(--rose)}.text-dim{color:var(--text-dim)}
+.mono{font-family:'DM Mono',monospace}.serif{font-family:'Cormorant Garamond',serif}
+.col-divider{width:100%;height:1px;background:rgba(255,255,255,0.06);margin:24px 0}
+</style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-brand">Pranalaya</div>
+    <div class="nav-sub">FlumenX · Marketing Masterplan</div>
+  </div>
+
+  <span class="nav-group-label">Overview</span>
+  <a href="#hero" class="active">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/></svg>
+    Introduction
+  </a>
+  <a href="#audit">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12L6 8l3 3 5-6"/></svg>
+    Digital Audit
+  </a>
+  <a href="#market">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+    Market Research
+  </a>
+
+  <hr class="nav-divider">
+  <span class="nav-group-label">Strategy</span>
+  <a href="#brand">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l7 12H1L8 2z"/></svg>
+    Brand Strategy
+  </a>
+  <a href="#keywords">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="4"/><path d="M10 10l4 4"/></svg>
+    Keywords & Leads
+  </a>
+  <a href="#content">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 3L2 7.5l4.5 1.5L8.5 14 14 3z"/></svg>
+    Content Strategy
+  </a>
+
+  <hr class="nav-divider">
+  <span class="nav-group-label">Commercial</span>
+  <a href="#packages">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v12M4 6h6.5a2.5 2.5 0 010 5H4"/></svg>
+    Our Packages
+  </a>
+  <a href="#video">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="9" height="8" rx="1"/><path d="M11 7l3-2v6l-3-2"/></svg>
+    Video & Amal Plan
+  </a>
+  <a href="#website">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M2 7h12"/></svg>
+    Website Plan
+  </a>
+  <a href="#products">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5l6-3 6 3v6l-6 3-6-3V5z"/></svg>
+    Products & Future
+  </a>
+
+  <hr class="nav-divider">
+  <span class="nav-group-label">Execution</span>
+  <a href="#plan30">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M6 2v12M2 6h4M2 10h4"/></svg>
+    30-Day Plan
+  </a>
+  <a href="#plan90">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg>
+    90-Day Roadmap
+  </a>
+  <a href="#longterm">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2,12 6,7 9,10 14,4"/></svg>
+    Long-Term Vision
+  </a>
+
+  <div class="nav-foot">Confidential Proposal<br>FlumenX Creative Systems<br>Prepared for Supriya Chellappan</div>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg-text">प्राण</div>
+  <div class="hero-accent-line"></div>
+  <div class="hero-eyebrow">FlumenX · Strategic Marketing Proposal · 2025</div>
+  <h1 class="hero-title">Pranalaya <span>&</span> Alaya<br>Marketing Masterplan</h1>
+  <p class="hero-lead">A complete digital marketing strategy, brand positioning, lead generation system, and 90-day execution plan for Pranalaya Good Earth Wellness — built to capture Technopark's 80,000 professionals and Kerala's growing premium wellness market.</p>
+  <div class="hero-meta">
+    <div class="hm-item"><span class="hm-label">Client</span><span class="hm-value">Supriya Chellappan · Pranalaya</span></div>
+    <div class="hm-item"><span class="hm-label">Prepared by</span><span class="hm-value">Anoop Krishna VA · FlumenX</span></div>
+    <div class="hm-item"><span class="hm-label">Location</span><span class="hm-value">Muttathara, Trivandrum</span></div>
+    <div class="hm-item"><span class="hm-label">Priority Focus</span><span class="hm-value">Alaya → Pranalaya Center</span></div>
+  </div>
+  <div class="tag-row">
+    <span class="tag">Ayurvedic Wellness</span>
+    <span class="tag">Heritage Stay · Alaya</span>
+    <span class="tag">Technopark Targeting</span>
+    <span class="tag">Lead Generation</span>
+    <span class="tag">SAG·EO + SEO</span>
+    <span class="tag">Product Marketing</span>
+  </div>
+</section>
+
+<!-- ─── AUDIT ─── -->
+<section id="audit">
+  <div class="sec-header">
+    <span class="sec-num mono">01</span>
+    <h2>Current Digital Presence Audit</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Before we build, we need to be honest about where things stand. Pranalaya's existing digital presence has real strengths — and real gaps that are actively costing leads.</p>
+
+  <div class="g2 mt24">
+    <div>
+      <h4>Website · pranaalaya.in</h4>
+      <div class="mt8">
+        <div class="issue-item">
+          <span class="issue-badge ib-critical">Critical</span>
+          <div class="issue-text"><strong>No SSL security warning visible on mobile browsers</strong> — The site runs on a shared WordPress multisite (note the /sites/30/ path in image URLs). This configuration often causes SSL certificate conflicts on subpaths, triggering "Not Secure" warnings that kill conversions for premium customers.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-critical">Critical</span>
+          <div class="issue-text"><strong>Elementor page builder bloat</strong> — Elementor 3.35.7 + external CSS + Google Fonts load generates 6–9 render-blocking scripts. PageSpeed score likely below 45 on mobile. Slow-loading wellness sites lose 53% of mobile visitors before they see the first treatment name.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-high">High</span>
+          <div class="issue-text"><strong>WordPress multisite architecture risk</strong> — Running on a shared multisite (/sites/30/) means updates to any other site on the server can break pranaalaya.in. Plugin conflicts and hosting-level changes are outside your control.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-high">High</span>
+          <div class="issue-text"><strong>No booking funnel clarity</strong> — "Book Appointment" and "Book Now" link to /contact-us/ which is a form, not a calendar. High-intent visitors (especially IT professionals who are time-pressured) expect instant slot selection. Every extra click is a lost booking.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-high">High</span>
+          <div class="issue-text"><strong>Alaya (heritage stay) has no dedicated landing page</strong> — The most premium and differentiated asset — the palace-wood heritage home with 2 retreat rooms — is completely invisible on the website. This is the biggest missed revenue opportunity.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-medium">Medium</span>
+          <div class="issue-text"><strong>SEO-zero blog section</strong> — Blogs are listed in the nav but have no content visible. Ayurveda is one of the highest organic search intent categories in Trivandrum. Every month without blog content is surrendered traffic.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-medium">Medium</span>
+          <div class="issue-text"><strong>No GMB (Google My Business) strategy</strong> — For "ayurveda near Technopark" and "ayurveda Muttathara" searches, GMB is the primary conversion surface. If the GMB listing is incomplete or unoptimised, Pranalaya doesn't exist for local intent searches.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-medium">Medium</span>
+          <div class="issue-text"><strong>Products section — no pricing, no cart</strong> — The products page exists but has no visible prices, add-to-cart, or purchase flow. A product section that doesn't allow purchasing is a liability, not an asset. Either build it properly or remove it temporarily.</div>
+        </div>
+        <div class="issue-item">
+          <span class="issue-badge ib-low">Low</span>
+          <div class="issue-text"><strong>Instagram (@pran.aalaya) started but thin</strong> — Presence is established but content cadence and content quality need significant elevation before paid ad traffic is directed there. A weak Instagram destroys the trust that Alaya's visual story could build.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h4>WordPress — Why It Will Become a Problem</h4>
+      <div class="warn-box mt8">
+        <h4>The WordPress Limitation Case</h4>
+        <div class="issue-item" style="border-color:rgba(196,70,58,0.15)">
+          <span class="issue-badge ib-critical">Speed</span>
+          <div class="issue-text">WordPress + Elementor sites regularly score 30–55 on Google PageSpeed Mobile. Core Web Vitals failure directly reduces Google ranking — for a business depending on "ayurveda near me" searches, this is a structural SEO penalty.</div>
+        </div>
+        <div class="issue-item" style="border-color:rgba(196,70,58,0.15)">
+          <span class="issue-badge ib-high">Security</span>
+          <div class="issue-text">WordPress powers 43% of all websites and is the most targeted CMS for cyberattacks. Plugin vulnerabilities, outdated themes, and shared hosting create regular security risks. One breach = customer data exposure = trust destroyed.</div>
+        </div>
+        <div class="issue-item" style="border-color:rgba(196,70,58,0.15)">
+          <span class="issue-badge ib-high">Scale</span>
+          <div class="issue-text">When the product line expands (3–4 products now, more coming), WordPress WooCommerce becomes unwieldy and expensive. Plugin costs, annual licence fees, and developer dependency compound every year.</div>
+        </div>
+        <div class="issue-item" style="border-color:rgba(196,70,58,0.15)">
+          <span class="issue-badge ib-medium">Cost</span>
+          <div class="issue-text">Annual WordPress costs add up: premium theme (₹7–12K/yr), Elementor Pro (₹8K/yr), WooCommerce extensions (₹5–15K/yr), security plugin (₹5K/yr), maintenance (₹15–25K/yr). Total: ₹40–65K/year before hosting, for a site you don't own.</div>
+        </div>
+        <div class="issue-item" style="border-color:rgba(196,70,58,0.15)">
+          <span class="issue-badge ib-medium">Future</span>
+          <div class="issue-text">Booking system integration, Alaya room availability calendar, product subscription, multilingual (for global wellness tourists) — all of these require custom development on WordPress anyway, at higher cost than building right the first time.</div>
+        </div>
+      </div>
+
+      <div class="info-box mt24">
+        <h4>What They Have Right</h4>
+        <p style="font-size:13px;margin-bottom:0;max-width:none">Supriya's founder story is genuinely powerful — a personal healing journey that led to building a wellness center. Dr. Subha is a 4th-generation Ayurveda doctor with 20 years of experience. The Alaya heritage asset (palace-reclaimed wood, traditional architecture, 2 retreat rooms) is completely unique in Trivandrum. These are rare differentiators that most marketing has not yet touched. That's our starting point.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARKET RESEARCH ─── -->
+<section id="market">
+  <div class="sec-header">
+    <span class="sec-num mono">02</span>
+    <h2>Market Research & Opportunity</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Muttathara sits between Technopark — India's oldest IT park with 80,000+ professionals — and the fast-growing residential corridor of Kazhakuttom and Kowdiar. This is not a quiet wellness niche. This is an underserved, high-income, high-stress market waiting for exactly what Pranalaya offers.</p>
+
+  <div class="g4 mt24 mb32">
+    <div class="stat"><div class="stat-num">80,000+</div><div class="stat-label">IT professionals working in Technopark as of 2025 — primary target segment within 5–15 min drive</div><div class="stat-src">Technopark.in 2025</div></div>
+    <div class="stat"><div class="stat-num">56%</div><div class="stat-label">Of IT employees experienced burnout in the last 12 months — creating direct demand for Pranalaya's de-stress packages</div><div class="stat-src">Workplace Wellness Study 2025</div></div>
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Kerala IT employees succumbed to cardiac arrest in 2023–24 — Technopark's own employee forum is advocating for wellness interventions</div><div class="stat-src">Deccan Herald / Prathidhwani</div></div>
+    <div class="stat"><div class="stat-num">₹1.2T</div><div class="stat-label">Global immersive wellness market projection by 2034 — premium Ayurveda stays are the fastest growing sub-segment</div><div class="stat-src">Mordor Intelligence</div></div>
+  </div>
+
+  <div class="g2">
+    <div>
+      <h4>Primary Target Segments</h4>
+      <div class="mt16 tl">
+        <div class="tl-item active">
+          <div class="tl-week">Segment 01 · Highest Volume</div>
+          <div class="tl-title">Technopark IT Professionals</div>
+          <div class="tl-body">Aged 25–45, income ₹60K–₹3L/month. Chronic stress, back pain, eye strain, and lifestyle disorders from desk work. 5–15 min drive from Muttathara. Already spending on gyms and weekend getaways — but Ayurveda is undersupplied near Technopark. Target: De-Stress Package, Rejuvenation Package, house-visit therapy for those who can't take a day off. Reach via: LinkedIn, Instagram, Technopark employee Facebook groups, company HR partnerships for corporate bookings.</div>
+        </div>
+        <div class="tl-item active">
+          <div class="tl-week">Segment 02 · Premium</div>
+          <div class="tl-title">Flat & Apartment Residents · Kazhakuttom–Muttathara Corridor</div>
+          <div class="tl-body">High-density residential area. Families, young professionals, and working women. Pre-wedding packages (Vivaha Varnam), postnatal care (Srishti), skincare (Soundarya) are natural entry points. Target via: Area-specific Instagram + Facebook geotargeting, residential complex WhatsApp groups, local mom communities.</div>
+        </div>
+        <div class="tl-item active">
+          <div class="tl-week">Segment 03 · High-Value</div>
+          <div class="tl-title">Wellness Tourists · Alaya Retreat Guests</div>
+          <div class="tl-body">NRIs, international travellers, and pan-India travellers seeking authentic Ayurvedic retreat in a heritage setting. Alaya's palace-wood heritage home is the hook — there is no comparable offering in Trivandrum at this price point. Reach via: Google Ads (English + Booking.com integration), Instagram, Kerala Tourism collaboration, Supriya's international network.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-week">Segment 04 · Growing</div>
+          <div class="tl-title">Corporate Wellness Buyers · HR Managers</div>
+          <div class="tl-body">Companies in Technopark are actively looking for employee wellness programmes. One B2B deal (e.g. quarterly Panchakarma camps for a 200-person company) equals 3 months of individual bookings. Reach via: LinkedIn B2B outreach to Technopark HR managers, Supriya's BNI network, personal introductions.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h4>Competitive Landscape · Trivandrum</h4>
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Strength</th>
+            <th>Pranalaya Advantage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kairali Ayurvedic Group</td>
+            <td style="color:var(--text-dim)">Brand name, resort properties</td>
+            <td style="color:var(--text-dim)">Authentic heritage + personal care, not resort-scale</td>
+          </tr>
+          <tr>
+            <td>Generic Technopark-area centres</td>
+            <td style="color:var(--text-dim)">Proximity, low price</td>
+            <td style="color:var(--text-dim)">4th-gen doctor, clinical depth, palace-heritage Alaya</td>
+          </tr>
+          <tr>
+            <td>High-end hotel spas</td>
+            <td style="color:var(--text-dim)">Premium positioning</td>
+            <td style="color:var(--text-dim)">Pranalaya is authentic Ayurveda, not spa-Ayurveda. Completely different promise.</td>
+          </tr>
+          <tr>
+            <td>Kerala Ayurveda chains</td>
+            <td style="color:var(--text-dim)">Standardised, scalable</td>
+            <td style="color:var(--text-dim)">Bespoke, doctor-supervised, legacy lineage</td>
+          </tr>
+          <tr class="cmp-highlight">
+            <td>Pranalaya</td>
+            <td class="cmp-good">Only heritage retreat (Alaya) + clinical center combo in Muttathara area</td>
+            <td class="cmp-good">Uncontested niche if positioned correctly</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pull-quote mt24">
+        <p>The Technopark wellness crisis is not a story about supply. It's a story about discovery. 80,000 stressed IT professionals, and most of them don't know Pranalaya exists 10 minutes from their office.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BRAND STRATEGY ─── -->
+<section id="brand">
+  <div class="sec-header">
+    <span class="sec-num mono">03</span>
+    <h2>Brand Strategy</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Two distinct brands. One parent story. Alaya leads. Pranalaya follows. This is not a marketing choice — it's a commercial architecture decision that protects both brands' positioning and maximises revenue potential.</p>
+
+  <div class="g2 mt32">
+    <div class="card card-gold">
+      <div class="kicker" style="color:var(--gold)">Phase 1 · Brand First</div>
+      <h3>Alaya</h3>
+      <p style="font-size:13.5px;max-width:none">The Heritage Wellness Retreat — this is your rarest, most differentiated asset and the brand to establish first. A traditional home built with palace-reclaimed wood, antique Kerala craftsmanship, 2 holistic retreat rooms, and an atmosphere no hotel or spa can replicate. Alaya speaks to people who seek transformation, not just treatment. Wellness tourists, NRIs, retreat-seekers, high-income professionals who want to disappear for 2–3 days.</p>
+      <div class="col-divider" style="margin:16px 0"></div>
+      <div class="task-row"><span class="tt tt-br">Positioning</span><span>Sacred. Ancient. Personal. "Where healing remembers its roots."</span></div>
+      <div class="task-row"><span class="tt tt-mk">Tone</span><span>Deeply warm, unhurried, literary. Not clinical. Not spa-speak.</span></div>
+      <div class="task-row"><span class="tt tt-vid">Visual</span><span>Dark wood, warm lantern light, heritage textures, monsoon greens. No stock photos.</span></div>
+      <div class="task-row"><span class="tt tt-sm">Content</span><span>Storytelling-first: Supriya's vision, the home's history, the doctor's lineage, guests' transformation. Instagram is the primary channel.</span></div>
+      <div class="task-row"><span class="tt tt-client">Pricing</span><span>2-night retreat, full-board, Ayurvedic program: ₹18,000–₹35,000 per person. Not competitive. Rare.</span></div>
+    </div>
+
+    <div class="card card-sage">
+      <div class="kicker" style="color:var(--sage)">Phase 2 · After Alaya Launches</div>
+      <h3>Pranalaya Center</h3>
+      <p style="font-size:13.5px;max-width:none">The Ayurvedic Therapy Center in Muttathara — clinical Ayurveda, accessible, appointment-driven. This is where the volume comes from: Technopark walk-ins, residential bookings, corporate packages, house-visit therapy. Pranalaya center is the engine. Alaya is the heart. Both are needed. But Alaya creates the premium reputation that makes people trust Pranalaya enough to book.</p>
+      <div class="col-divider" style="margin:16px 0"></div>
+      <div class="task-row"><span class="tt tt-br">Positioning</span><span>Authentic. Expert. Accessible. "Real Ayurveda, close to you."</span></div>
+      <div class="task-row"><span class="tt tt-mk">Tone</span><span>Warm authority. Trustworthy clinical voice. Doctor-led. Evidence-backed.</span></div>
+      <div class="task-row"><span class="tt tt-vid">Visual</span><span>Clean, professional, warm-toned. Dr. Subha as the face. Treatment spaces, herbs, consultation moments.</span></div>
+      <div class="task-row"><span class="tt tt-sm">Content</span><span>Educational + conversion: "What is Panchakarma?", "Best time for Abhyanga", testimonials, doctor Q&amp;A reels.</span></div>
+      <div class="task-row"><span class="tt tt-client">Pricing</span><span>Packages: ₹1,500–₹8,000. De-stress half-day: ₹2,500. Corporate packages: ₹500–₹1,200/person for group sessions.</span></div>
+    </div>
+  </div>
+
+  <div class="info-box mt32">
+    <h4>The Sequencing Logic</h4>
+    <p style="font-size:13.5px;max-width:none;margin-bottom:0">Brand Alaya first because it sets the quality signal. When a Technopark professional sees Alaya's Instagram — the heritage home, the personal story, the doctor's lineage — and then searches and finds the Pranalaya Center just 10 minutes from their office, the trust is already built. They're not booking a clinic. They're extending a relationship with a brand they already believe in. This sequencing converts better and commands higher fees at the center too.</p>
+  </div>
+</section>
+
+<!-- ─── KEYWORDS ─── -->
+<section id="keywords">
+  <div class="sec-header">
+    <span class="sec-num mono">04</span>
+    <h2>Keyword & Lead Generation Strategy</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Keywords are not just for SEO — they define who your customer is and what they're feeling when they search. Every keyword below maps to a real person in Trivandrum with a specific problem Pranalaya solves.</p>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="sw('kw','local',this)">Local High-Intent</button>
+    <button class="tab-btn" onclick="sw('kw','technopark',this)">Technopark-Specific</button>
+    <button class="tab-btn" onclick="sw('kw','alaya',this)">Alaya / Retreat</button>
+    <button class="tab-btn" onclick="sw('kw','treatment',this)">Treatment Keywords</button>
+  </div>
+
+  <div id="kw-local" class="tab-panel active">
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Monthly Searches</th><th>Competition</th><th>Intent</th><th>Target Page</th></tr></thead>
+      <tbody>
+        <tr><td>Ayurveda center Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:85%"></div></div></td><td>Medium</td><td><span class="intent-badge intent-trans">Transactional</span></td><td>Pranalaya Center Homepage</td></tr>
+        <tr><td>Ayurvedic treatment near Technopark</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:72%"></div></div></td><td>Low</td><td><span class="intent-badge intent-trans">Transactional</span></td><td>GMB + Center Landing Page</td></tr>
+        <tr><td>Panchakarma Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:78%"></div></div></td><td>Medium</td><td><span class="intent-badge intent-trans">Transactional</span></td><td>Panchakarma Package Page</td></tr>
+        <tr><td>Ayurveda massage Muttathara</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:40%"></div></div></td><td>Very Low</td><td><span class="intent-badge intent-trans">Transactional</span></td><td>GMB (wins instantly)</td></tr>
+        <tr><td>Ayurvedic clinic near me Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:90%"></div></div></td><td>Medium</td><td><span class="intent-badge intent-trans">Transactional</span></td><td>GMB + Center Page</td></tr>
+        <tr><td>Ayurveda home visit Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:48%"></div></div></td><td>Very Low</td><td><span class="intent-badge intent-trans">Transactional</span></td><td>House Visit Service Page</td></tr>
+        <tr><td>Pre wedding Ayurveda Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:55%"></div></div></td><td>Low</td><td><span class="intent-badge intent-comm">Commercial</span></td><td>Vivaha Varnam Page</td></tr>
+        <tr><td>Post natal Ayurveda treatment Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:60%"></div></div></td><td>Low</td><td><span class="intent-badge intent-trans">Transactional</span></td><td>Srishti Package Page</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="kw-technopark" class="tab-panel">
+    <div class="info-box mb16">
+      <h4>Why This Segment Is Gold</h4>
+      <p style="font-size:13px;max-width:none;margin-bottom:0">Technopark's own employee forums are actively documenting burnout and cardiac deaths from work stress. The employees are not just interested in wellness — they are actively looking for it. Pranalaya's location (10–15 min from Technopark) and the De-Stress + Rejuvenation packages are a perfect match. The conversation is already happening. Pranalaya just needs to be in the room.</p>
+    </div>
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Search Volume</th><th>Strategy</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Stress relief near Technopark Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:45%"></div></div></td><td>Low competition, high conversion</td><td>GMB + dedicated landing page</td></tr>
+        <tr><td>Wellness center Kazhakuttom</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:38%"></div></div></td><td>Hyperlocal — almost zero competition</td><td>GMB optimisation</td></tr>
+        <tr><td>Ayurveda for IT professionals Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-low" style="width:28%"></div></div></td><td>Long tail — blog content wins this</td><td>Blog: "Why IT professionals need Ayurveda"</td></tr>
+        <tr><td>Work stress treatment Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:52%"></div></div></td><td>Bridges wellness and clinical intent</td><td>Google Ads + De-Stress package page</td></tr>
+        <tr><td>Ayurvedic massage Kazhakuttom</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:35%"></div></div></td><td>Hyperlocal zero-competition</td><td>GMB wins this instantly</td></tr>
+        <tr><td>Employee wellness program Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-low" style="width:30%"></div></div></td><td>B2B corporate segment keyword</td><td>LinkedIn content + direct HR outreach</td></tr>
+        <tr><td>Corporate Ayurveda wellness Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-low" style="width:22%"></div></div></td><td>High value per conversion</td><td>Dedicated corporate package page</td></tr>
+      </tbody>
+    </table>
+    <div class="card card-gold mt24">
+      <h4>The Technopark Lead Funnel (Direct)</h4>
+      <div class="task-row"><span class="tt tt-sm">Step 1</span><span>Target Technopark Facebook/LinkedIn groups with sponsored content about Ayurveda for desk workers. No "book now" — lead with education.</span></div>
+      <div class="task-row"><span class="tt tt-sm">Step 2</span><span>WhatsApp Business link in all ads. IT professionals respond better to WhatsApp than contact forms — they're on it all day.</span></div>
+      <div class="task-row"><span class="tt tt-sm">Step 3</span><span>Supriya's BNI Matrix connections: pitch a "Wellness Wednesday" program to 5 Technopark companies — Dr. Subha visits for a free 30-min group consultation. This becomes corporate bookings.</span></div>
+      <div class="task-row"><span class="tt tt-mk">Step 4</span><span>Google Ads: target "ayurvedic treatment near me" on mobile at 7–9 AM (commute) and 5–7 PM (post-work) for Technopark/Kazhakuttom pin codes. Budget: ₹8–12K/month for high-converting leads.</span></div>
+    </div>
+  </div>
+
+  <div id="kw-alaya" class="tab-panel">
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Search Volume</th><th>Competition</th><th>Content Strategy</th></tr></thead>
+      <tbody>
+        <tr><td>Heritage Ayurveda retreat Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:75%"></div></div></td><td>Medium</td><td>Alaya homepage + Google Ads</td></tr>
+        <tr><td>Ayurveda retreat Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:80%"></div></div></td><td>Medium</td><td>Alaya landing page + SEO blog</td></tr>
+        <tr><td>Authentic Ayurveda stay Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:65%"></div></div></td><td>Medium</td><td>Instagram Reels + blog</td></tr>
+        <tr><td>Luxury wellness retreat Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:58%"></div></div></td><td>Low-Medium</td><td>Alaya photography campaign</td></tr>
+        <tr><td>Traditional Kerala home stay wellness</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:48%"></div></div></td><td>Low</td><td>Alaya heritage story content</td></tr>
+        <tr><td>Panchakarma retreat package Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:82%"></div></div></td><td>Medium</td><td>Alaya retreat package page</td></tr>
+        <tr><td>NRI Ayurveda retreat Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:55%"></div></div></td><td>Low</td><td>English blog + Instagram targeting diaspora</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="kw-treatment" class="tab-panel">
+    <table class="kw-table">
+      <thead><tr><th>Treatment Keyword</th><th>Volume</th><th>Package Match</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>Panchakarma treatment Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:85%"></div></div></td><td>Panchakarma Package</td><td><span class="intent-badge intent-trans">Priority 1</span></td></tr>
+        <tr><td>Abhyanga massage Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:60%"></div></div></td><td>Rejuvenation Package</td><td><span class="intent-badge intent-trans">Priority 1</span></td></tr>
+        <tr><td>Ayurveda skin care treatment Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:65%"></div></div></td><td>Soundarya / Kanthisparsha</td><td><span class="intent-badge intent-comm">Priority 2</span></td></tr>
+        <tr><td>Postpartum Ayurveda Kerala</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:55%"></div></div></td><td>Srishti Package</td><td><span class="intent-badge intent-comm">Priority 2</span></td></tr>
+        <tr><td>Ayurveda body detox Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-med" style="width:58%"></div></div></td><td>Body Immunization Package</td><td><span class="intent-badge intent-comm">Priority 2</span></td></tr>
+        <tr><td>Best Ayurveda doctor Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-high" style="width:70%"></div></div></td><td>Dr. Subha profile page</td><td><span class="intent-badge intent-trans">Priority 1</span></td></tr>
+        <tr><td>Ayurvedic home visit doctor Trivandrum</td><td><div class="vol-bar"><div class="vol-fill kw-low" style="width:32%"></div></div></td><td>House Visit Service</td><td><span class="intent-badge intent-info">Priority 3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ─── CONTENT STRATEGY ─── -->
+<section id="content">
+  <div class="sec-header">
+    <span class="sec-num mono">05</span>
+    <h2>Content Strategy</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Content is not posts. Content is the system by which Pranalaya becomes the most trusted Ayurveda name in Trivandrum. Every piece of content must serve one of three jobs: attract, trust-build, or convert.</p>
+
+  <div class="g2 mt24">
+    <div>
+      <h4>Alaya — Content Pillars</h4>
+      <div class="phase-block mt8">
+        <div class="task-row"><span class="tt tt-vid">Pillar 1</span><span><strong>The Heritage Story</strong> — The palace-wood home, the antiques, the handcrafted spaces. Visual storytelling reels. No captions needed sometimes — just beauty.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Pillar 2</span><span><strong>Founder's Vision</strong> — Supriya's personal healing journey. "Why I built Alaya." Short documentary-style video. This is the highest-converting content type for premium wellness brands.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Pillar 3</span><span><strong>Guest Transformation Stories</strong> — Testimonials, not reviews. "What changed for me after 3 days at Alaya." Real words from real guests. Instagram Stories + highlight reel.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Pillar 4</span><span><strong>The Ritual</strong> — Behind-the-scenes of Ayurvedic preparation: oils being prepared, morning routines at Alaya, the healing process. Makes audiences feel they're already there.</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h4>Pranalaya Center — Content Pillars</h4>
+      <div class="phase-block mt8">
+        <div class="task-row"><span class="tt tt-sm">Pillar 1</span><span><strong>Dr. Subha's Expertise</strong> — Short educational reels: "What Panchakarma actually does to your body," "The Ayurvedic remedy for screen eye strain." Positions the doctor, not the clinic.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Pillar 2</span><span><strong>IT Professional Wellness</strong> — "3 Ayurvedic remedies every Technopark employee needs." Hyper-specific content that makes a segment feel seen. High share rate.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Pillar 3</span><span><strong>Package Explainers</strong> — "What happens in the De-Stress Package from morning to evening." Removes uncertainty (the #1 barrier to first bookings) and shows value clearly.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Pillar 4</span><span><strong>Patient Testimonials</strong> — Real patients, real results. Before-and-after (conditions only, not images if sensitive). Video testimonials are 4x more converting than text reviews for medical wellness.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-gold mt32">
+    <h4>The Content Hierarchy — What Comes First</h4>
+    <div class="g3 mt16">
+      <div>
+        <div class="kicker" style="color:var(--gold)">Month 1</div>
+        <p style="font-size:13px;max-width:none">Foundation content only. Professional photography shoot at Alaya (the home, Dr. Subha, Supriya). This single shoot creates 3 months of visual content. No ads until photography is done — bad visuals for a premium brand is worse than no ads.</p>
+      </div>
+      <div>
+        <div class="kicker" style="color:var(--sage)">Month 2</div>
+        <p style="font-size:13px;max-width:none">Instagram and Google presence activated. GMB fully optimised with photos, services, and first 10 posts. Organic content cadence established. First WhatsApp lead generation ads for Technopark targeting.</p>
+      </div>
+      <div>
+        <div class="kicker" style="color:var(--rose)">Month 3+</div>
+        <p style="font-size:13px;max-width:none">Video content begins. Founder story video, Dr. Subha reels, first Alaya transformation testimonial. Product content begins only after treatment services have consistent lead flow. SEO blog publishing begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PACKAGES ─── -->
+<section id="packages">
+  <div class="sec-header">
+    <span class="sec-num mono">06</span>
+    <h2>FlumenX Service Packages</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">These packages are tailored for Pranalaya's current stage — building brand presence, capturing local demand, and generating consistent leads. Content volumes are calibrated for quality over quantity, with specific adjustments for Pranalaya's content style.</p>
+
+  <div class="g3 mt32">
+    <!-- PACKAGE 1 -->
+    <div class="pkg-card">
+      <div class="pkg-top">
+        <div class="pkg-name">Package 01 · Foundation</div>
+        <div class="pkg-title">Pranalaya Presence</div>
+        <div class="pkg-desc">GMB + Social presence setup — for Pranalaya Center's first 3 months. Pure visibility building.</div>
+        <div class="pkg-price">₹18,000 <span>/ month</span></div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>6 Static Posts/Posters</strong> — Treatment feature, package spotlight, educational</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>4 Reels</strong> — Dr. Subha tips, treatment walkthroughs, patient testimonials</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>GMB Full Optimisation</strong> — Photos, services, posts, Q&amp;A, review management</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>12 Instagram Stories/week</strong></span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>Content Calendar</strong> — Monthly content plan with captions and hashtags</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>2 Platforms</strong> — Instagram + Facebook</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>Basic Performance Report</strong> — Monthly analytics review</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-sage">▸</span><span><strong>WhatsApp Enquiry Management Support</strong></span></div>
+      </div>
+    </div>
+
+    <!-- PACKAGE 2 -->
+    <div class="pkg-card featured">
+      <div class="featured-tag">Recommended</div>
+      <div class="pkg-top">
+        <div class="pkg-name">Package 02 · Growth</div>
+        <div class="pkg-title">Alaya + Pranalaya</div>
+        <div class="pkg-desc">Full digital presence for both brands — social, SEO, lead generation, and Google Ads management.</div>
+        <div class="pkg-price" style="color:var(--gold)">₹32,000 <span>/ month</span></div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>10 Static Posts/Posters</strong> — Split across Alaya and Pranalaya (heritage + clinical)</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>5 Reels</strong> — Mix of Alaya storytelling + Pranalaya expertise</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>GMB Advanced Strategy</strong> — Active posting, review responses, local pack targeting</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>Google Ads Management</strong> — ₹8,000–₹12,000 ad spend (separate from package fee), targeting Technopark + residential area</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>Lead Generation Campaigns</strong> — WhatsApp lead ads with qualified audience targeting</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>3 Platforms</strong> — Instagram + Facebook + LinkedIn (corporate B2B)</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>Monthly SEO Report</strong> — Keyword ranking + competitor tracking</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>Basic Blog Content</strong> — 2 SEO blogs/month (foundational keyword targeting)</span></div>
+        <div class="pkg-feat highlight"><span class="pkg-feat-icon">▸</span><span><strong>Strategy Call</strong> — Monthly 45-min review with Anoop</span></div>
+      </div>
+    </div>
+
+    <!-- PACKAGE 3 -->
+    <div class="pkg-card">
+      <div class="pkg-top">
+        <div class="pkg-name">Package 03 · Authority</div>
+        <div class="pkg-title">Full-Stack Marketing</div>
+        <div class="pkg-desc">Complete digital ecosystem — brand, SEO, ads, content, product marketing, and SAG·EO for long-term authority.</div>
+        <div class="pkg-price">₹52,000 <span>/ month</span></div>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>14 Static Posts/Posters</strong> — Full content system across both brands</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>7 Reels</strong> — Alaya storytelling, Dr. Subha expertise, product content</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>SAG·EO (FlumenX proprietary)</strong> — SEO → AEO → GEO → Authority compounding framework. Positions Pranalaya as the AI and search authority for Ayurveda in Trivandrum</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>Advanced Google Ads</strong> — Multi-campaign setup (Alaya + Center + Products) with conversion tracking</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>4 Platforms</strong> + YouTube shorts management</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>4 SEO Blogs/month</strong> — Long-form treatment guides, heritage content</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>Product Launch Marketing</strong> — When the product line is ready, campaigns are embedded in this package</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>Influencer Micro-Campaign</strong> — Quarterly wellness influencer collaboration</span></div>
+        <div class="pkg-feat"><span class="pkg-feat-icon text-gold">▸</span><span><strong>Bi-weekly Strategy Reviews</strong></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IF NO WEBSITE SECTION -->
+  <div class="card card-rose mt32">
+    <div class="kicker" style="color:var(--rose)">Add-On · If No Website Rebuild is Planned</div>
+    <h3 style="font-size:20px">SAG·EO Standalone + SEO Package</h3>
+    <p style="font-size:13.5px;max-width:none">If the website upgrade is deferred, we strongly recommend adding the SAG·EO foundational layer to any package. This ensures Pranalaya appears not just on Google Search, but across AI-generated answers (ChatGPT, Gemini, Perplexity) when users ask "best Ayurveda center in Trivandrum" — a search modality that is growing 40% year-on-year. The SAG·EO setup is a one-time foundational work of ₹22,000 with a monthly maintenance component integrated into the Growth or Authority package.</p>
+    <div class="g2 mt16">
+      <div class="task-row"><span class="tt tt-br">SAG·EO Setup</span><span>₹22,000 one-time — authority layer, structured data, AEO signals, GEO content seeding</span></div>
+      <div class="task-row"><span class="tt tt-br">Monthly SEO</span><span>Included in Growth/Authority packages · Standalone add-on: ₹12,000/month</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VIDEO & AMAL ─── -->
+<section id="video">
+  <div class="sec-header">
+    <span class="sec-num mono">07</span>
+    <h2>Video Strategy & Amal Collaboration</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Video is not optional for Pranalaya. Alaya's visual story demands it. But how we produce it can be structured intelligently — balancing production quality with cost, using a collaborative model with Amal that serves everyone.</p>
+
+  <div class="g2 mt24">
+    <div>
+      <h4>Video Deliverables in Packages</h4>
+      <p style="font-size:13.5px">Our packages above are already calibrated for realistic video production. Here's the breakdown by type so you can see what each Reel actually involves:</p>
+      <div class="phase-block mt16">
+        <div class="task-row"><span class="tt tt-vid">Type A</span><span><strong>Doctor Expert Reels (30–60 sec)</strong> — Dr. Subha speaking to camera about a treatment or health topic. Shooting: 30 min. Editing: 2–3 hrs. High-conversion content. FlumenX produces these in-house.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Type B</span><span><strong>Testimonial Reels</strong> — Patient/guest speaking at the center or Alaya. Interview format. Shooting: 45 min. Editing: 2 hrs. FlumenX handles script, shoot coordination, and edit.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Type C</span><span><strong>Treatment Showcase Reels</strong> — Atmospheric B-roll of treatments, oils, therapists at work. No speaking required. High visual impact, builds trust. This is where a dedicated videographer like Amal adds significant value.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Type D</span><span><strong>Alaya Heritage Reels</strong> — Cinematic shots of the heritage home, morning light through wooden windows, the garden, the architecture. This is Amal's strongest contribution. These videos are Alaya's brand identity.</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="amal-box">
+        <h4 style="color:var(--gold)">The Amal Collaboration Model</h4>
+        <p style="font-size:13.5px;max-width:none">Amal brings professional video quality that enhances the Alaya storytelling significantly — and his involvement creates an opportunity to restructure the video workload in a way that benefits all parties.</p>
+        <div class="col-divider" style="margin:14px 0"></div>
+        <div class="task-row"><span class="tt tt-vid">What Amal Covers</span><span>Cinematic Alaya heritage reels (Type D) and treatment showcase B-roll (Type C) — typically 3–4 videos/month. Amal quotes separately for his production and editing.</span></div>
+        <div class="task-row"><span class="tt tt-sm">What FlumenX Covers</span><span>Doctor expert reels (Type A), testimonial reels (Type B), all graphic content, social management, ads, strategy, GMB, and content coordination.</span></div>
+        <div class="task-row"><span class="tt tt-mk">The Result</span><span>When Amal contributes a defined number of videos with editing, FlumenX's video production cost within the package reduces — which we can reflect in a revised package quote for Supriya. We can discuss the exact adjustment directly based on Amal's confirmed deliverable count.</span></div>
+        <div class="col-divider" style="margin:14px 0"></div>
+        <p style="font-size:12.5px;color:var(--text-dim);max-width:none;margin-bottom:0">The priority right now is confirming what Amal will produce (quantity, type, editing turnaround) before adjusting package pricing. Once that's clear, the revised FlumenX quote reflects his contribution transparently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WEBSITE ─── -->
+<section id="website">
+  <div class="sec-header">
+    <span class="sec-num mono">08</span>
+    <h2>Website Plan</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">The current WordPress/Elementor site works for now — but it has a ceiling. If Pranalaya is planning product sales, Alaya room bookings, and a multi-brand presence, the right decision is building properly now rather than migrating under pressure later.</p>
+
+  <div class="g2 mt24">
+    <div>
+      <h4>Option A · React / Next.js Custom Website</h4>
+      <div class="info-box">
+        <h4>Recommended · Under ₹28,000 (basic)</h4>
+        <div class="task-row"><span class="tt tt-sm">Speed</span><span>Next.js / React sites score 85–95 on Google PageSpeed Mobile. The SEO advantage alone is worth the investment.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Scalability</span><span>Alaya booking calendar, Pranalaya appointment system, product e-commerce, WhatsApp integration — all built natively, not via plugins.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Cost Over Time</span><span>Zero annual plugin costs, no theme renewals, no Elementor licence. Server: ₹500–1,500/month (VPS). Total 3-year cost is lower than maintaining WordPress.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Control</span><span>You own the code. If you change the agency, the site still works. No platform lock-in.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Products Ready</span><span>When the 3–4 Ayurvedic products expand to a full range, e-commerce is added as a module without rebuilding the entire site.</span></div>
+        <div class="task-row"><span class="tt tt-gold">Investment</span><span><strong>₹25,000–₹30,000 basic site</strong> (5 pages: Home, Alaya, Pranalaya Center, Treatments, Contact + Booking). Server hosting ₹800–1,200/month additional. Akhil (FlumenX dev) can build and maintain this.</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h4>Option B · Continue with WordPress</h4>
+      <div class="warn-box">
+        <h4>Acceptable Short-Term · Problematic Long-Term</h4>
+        <div class="task-row"><span class="issue-badge ib-high" style="font-size:8px">Risk 1</span><span style="font-size:12.5px;color:var(--text-dim)">Multisite architecture (/sites/30/) means your site performance is tied to other sites on the same server. An unrelated site crashing can pull Pranalaya offline.</span></div>
+        <div class="task-row"><span class="issue-badge ib-high" style="font-size:8px">Risk 2</span><span style="font-size:12.5px;color:var(--text-dim)">When product e-commerce is added, WooCommerce + Elementor together create severe performance degradation. Mobile PageSpeed can drop to 25–35.</span></div>
+        <div class="task-row"><span class="issue-badge ib-medium" style="font-size:8px">Risk 3</span><span style="font-size:12.5px;color:var(--text-dim)">Annual costs: Elementor Pro (₹8K) + security (₹5K) + theme (₹8K) + maintenance dev hours (₹15–25K) = ₹36–46K/year for an increasingly slow site.</span></div>
+        <div class="task-row"><span class="issue-badge ib-medium" style="font-size:8px">Risk 4</span><span style="font-size:12.5px;color:var(--text-dim)">Alaya booking integration — WordPress needs a premium booking plugin (₹5–12K/yr) that may not match Alaya's heritage visual aesthetic without heavy custom CSS.</span></div>
+        <div class="col-divider" style="margin:14px 0"></div>
+        <p style="font-size:12.5px;color:var(--text-dim);max-width:none;margin-bottom:0">If the decision is to stay on WordPress for now: at minimum, migrate away from the shared multisite to a dedicated WordPress install on a managed host (Cloudflare + SiteGround or WP Engine) — and add Alaya as a dedicated landing page immediately.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-gold mt32">
+    <h4>Immediate Website Fixes — Regardless of Platform Decision</h4>
+    <div class="g2 mt8">
+      <div>
+        <div class="task-row"><span class="tt tt-web">Fix 1</span><span>Replace /contact-us/ booking with a real calendar booking system (Calendly or Simplybook.me — both free tiers available). Connects directly to WhatsApp confirmation.</span></div>
+        <div class="task-row"><span class="tt tt-web">Fix 2</span><span>Create a dedicated Alaya landing page — even a single, beautifully designed page with the heritage story, room details, package pricing, and WhatsApp booking link. This alone can generate direct revenue.</span></div>
+        <div class="task-row"><span class="tt tt-web">Fix 3</span><span>Add Google Analytics 4 + Meta Pixel immediately. Without tracking, ad spend is blind. Every rupee spent on ads after this needs conversion data to optimise.</span></div>
+      </div>
+      <div>
+        <div class="task-row"><span class="tt tt-web">Fix 4</span><span>Complete the GMB listing: add photos (interior, Dr. Subha, treatment rooms), services with pricing ranges, correct operating hours, WhatsApp number as primary contact.</span></div>
+        <div class="task-row"><span class="tt tt-web">Fix 5</span><span>Products section: either add prices and a WhatsApp "order now" button (instant), or hide the page until proper e-commerce is ready. A products page with no purchase path is a dead end.</span></div>
+        <div class="task-row"><span class="tt tt-web">Fix 6</span><span>Add schema markup for LocalBusiness + MedicalBusiness + Ayurvedic Wellness Center. This is a 30-minute technical task that significantly improves Google rich result eligibility.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ─── -->
+<section id="products">
+  <div class="sec-header">
+    <span class="sec-num mono">09</span>
+    <h2>Product Marketing — Now & Future</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Pranalaya's 3–4 Ayurvedic products are an asset that should grow with the brand — not be rushed to market before the brand trust is established. The right sequence protects both the products and the clinic's reputation.</p>
+
+  <div class="g3 mt24">
+    <div class="phase-block">
+      <div class="phase-label">Stage 1 · Now</div>
+      <div class="phase-title">Introduce, Don't Sell</div>
+      <div class="task-row"><span class="tt tt-sm">Action</span><span>Feature products in content as part of the treatment experience — "the oils Dr. Subha uses in your Abhyanga." Creates aspiration without hard-selling.</span></div>
+      <div class="task-row"><span class="tt tt-sm">Action</span><span>Add products to the GMB listing as "Products Available Here." Free reach, no e-commerce infrastructure needed yet.</span></div>
+      <div class="task-row"><span class="tt tt-sm">Action</span><span>WhatsApp-based ordering for now: interested customers message to inquire, order, and pay via UPI. Manual but zero infrastructure cost.</span></div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-label">Stage 2 · Month 3–6</div>
+      <div class="phase-title">Soft E-commerce Launch</div>
+      <div class="task-row"><span class="tt tt-mk">Action</span><span>Add a simple product shop page — if on React/Next.js, Razorpay integration allows proper cart + payment in 1 week. If on WordPress, WooCommerce with basic setup.</span></div>
+      <div class="task-row"><span class="tt tt-mk">Action</span><span>Product content series: "What's in our Kanjira Thailam?" Educational content about ingredients builds trust before purchase.</span></div>
+      <div class="task-row"><span class="tt tt-mk">Action</span><span>Alaya retreat guests become the first product buyers — they experience the products during their stay and want to continue the ritual at home. Gift packaging for Alaya guests.</span></div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-label">Stage 3 · Month 6–12</div>
+      <div class="phase-title">Product Brand Identity</div>
+      <div class="task-row"><span class="tt tt-gold">Action</span><span>Dedicated product sub-brand or line name under the Pranalaya umbrella — "Pranalaya Essentials" or a heritage-named product line. Individual product pages with ingredient stories.</span></div>
+      <div class="task-row"><span class="tt tt-gold">Action</span><span>Product-specific Instagram campaigns targeting Kerala diaspora (NRIs who trust authentic Kerala Ayurvedic products), wellness communities, and Alaya guest remarketing.</span></div>
+      <div class="task-row"><span class="tt tt-gold">Action</span><span>Subscription model: "Monthly Wellness Box" — selected products + digital consultation with Dr. Subha. ₹1,500–₹2,500/month recurring revenue stream.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 30-DAY PLAN ─── -->
+<section id="plan30">
+  <div class="sec-header">
+    <span class="sec-num mono">10</span>
+    <h2>30-Day Execution Plan</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">The first 30 days are about building the foundation that everything else runs on. No ads before the photography is done. No social campaign before the brand language is set. Sequence matters more than speed.</p>
+
+  <div class="ov-grid">
+    <div class="ov-cell"><div class="ov-num">Week 1</div><div class="ov-label">Brand, Photography & Digital Setup</div></div>
+    <div class="ov-cell"><div class="ov-num">Week 2</div><div class="ov-label">GMB, Website Fixes & Content Calendar</div></div>
+    <div class="ov-cell"><div class="ov-num">Week 3</div><div class="ov-label">Content Launch & First Posts</div></div>
+    <div class="ov-cell"><div class="ov-num">Week 4</div><div class="ov-label">First Lead Campaigns & Analytics</div></div>
+  </div>
+
+  <div class="g2 mt8">
+    <div>
+      <div class="phase-block mb16">
+        <div class="phase-label">Week 1 · Foundation</div>
+        <div class="phase-title">Brand + Setup</div>
+        <div class="task-row"><span class="tt tt-br">Brand</span><span>Finalise Alaya and Pranalaya brand language — tone of voice document, visual guidelines, taglines. All content must use consistent language from Day 1.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Shoot</span><span>Professional photography session at Alaya — heritage home, Dr. Subha portraits, treatment spaces, product shots. This is the most important investment of Month 1.</span></div>
+        <div class="task-row"><span class="tt tt-web">Digital</span><span>Google Analytics 4 + Meta Pixel installed on pranaalaya.in. WhatsApp Business profile fully set up with auto-replies and product catalogue.</span></div>
+        <div class="task-row"><span class="tt tt-client">Client</span><span>Supriya to share: all current treatment pricing, Alaya room pricing, product details and availability, existing patient testimonials (written/video).</span></div>
+      </div>
+
+      <div class="phase-block">
+        <div class="phase-label">Week 2 · Infrastructure</div>
+        <div class="phase-title">GMB + Website + Content Plan</div>
+        <div class="task-row"><span class="tt tt-sm">GMB</span><span>Complete GMB profile: all photos uploaded, services with descriptions and pricing ranges, operating hours, WhatsApp number, 5 initial posts, category "Ayurvedic Clinic" + "Wellness Centre".</span></div>
+        <div class="task-row"><span class="tt tt-web">Website</span><span>Immediate fixes: booking system replaced, Alaya landing page created, products section updated, schema markup added.</span></div>
+        <div class="task-row"><span class="tt tt-mk">Content</span><span>3-month content calendar created — all posts planned by date, format, caption direction, and hashtag set. Approved by Supriya before any posting begins.</span></div>
+        <div class="task-row"><span class="tt tt-br">Alaya</span><span>Alaya Instagram highlight structure created: The Home, The Experience, The Healing, Testimonials, Book A Stay. These become the permanent brand architecture on the profile.</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="phase-block mb16">
+        <div class="phase-label">Week 3 · Activation</div>
+        <div class="phase-title">Content Goes Live</div>
+        <div class="task-row"><span class="tt tt-sm">Social</span><span>First 6 posts published — a mix of Alaya heritage visuals, Dr. Subha introduction, and one treatment explainer. Posting cadence: 1 post every 2 days, 5 stories/day.</span></div>
+        <div class="task-row"><span class="tt tt-vid">Video</span><span>First Reel: Dr. Subha's 45-second expert tip on stress and Ayurveda. Targeted directly at Technopark audience. No promotional ask — pure education.</span></div>
+        <div class="task-row"><span class="tt tt-mk">GMB</span><span>First 5 GMB posts published. Request reviews from first 10 existing patients/contacts via WhatsApp — personal ask, not automated. 5 real reviews changes local search ranking overnight.</span></div>
+        <div class="task-row"><span class="tt tt-client">Outreach</span><span>Supriya initiates 3 personal introductions from BNI network to Technopark company HR managers for the corporate wellness program conversation.</span></div>
+      </div>
+
+      <div class="phase-block">
+        <div class="phase-label">Week 4 · Lead Generation</div>
+        <div class="phase-title">First Paid Campaigns</div>
+        <div class="task-row"><span class="tt tt-mk">Ads</span><span>First Instagram/Facebook lead generation campaign: "10-minute free Ayurveda consultation" — targeted to Technopark pin codes, 25–45 age, interests: wellness, yoga, stress management. Budget: ₹3,000 test.</span></div>
+        <div class="task-row"><span class="tt tt-mk">Google</span><span>First Google Ads campaign: "Ayurveda near Technopark Trivandrum" + "Panchakarma Trivandrum" — call and WhatsApp extension enabled. Budget: ₹5,000 test.</span></div>
+        <div class="task-row"><span class="tt tt-sm">Leads</span><span>Lead response system activated: all WhatsApp enquiries responded to within 2 hours during clinic hours. Response template prepared for each package type.</span></div>
+        <div class="task-row"><span class="tt tt-web">Analytics</span><span>End of Month 1 report: website traffic, GMB impressions and calls, Instagram reach and profile visits, leads generated, cost per lead. Baseline established for Month 2 targets.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 90-DAY PLAN ─── -->
+<section id="plan90">
+  <div class="sec-header">
+    <span class="sec-num mono">11</span>
+    <h2>90-Day Roadmap</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Month 1 builds the foundation. Month 2 activates reach. Month 3 converts and scales. By Day 90, Pranalaya should have a consistent, measurable lead flow and Alaya's first paying retreat guests.</p>
+
+  <div class="roadmap-strip">
+    <div class="rm-phase" data-num="1">
+      <div class="rm-label">Month 1 · Days 1–30</div>
+      <div class="rm-title">Foundation</div>
+      <div class="task-row"><span class="tt tt-br">Brand</span><span>Alaya + Pranalaya brand guidelines locked</span></div>
+      <div class="task-row"><span class="tt tt-vid">Visual</span><span>Photography shoot completed and edited</span></div>
+      <div class="task-row"><span class="tt tt-web">Tech</span><span>GMB live, website fixes done, tracking installed</span></div>
+      <div class="task-row"><span class="tt tt-sm">Social</span><span>Instagram content cadence established (5 posts/week)</span></div>
+      <div class="task-row"><span class="tt tt-mk">Ads</span><span>First test campaigns live (₹8–12K test budget)</span></div>
+      <div class="task-row"><span class="tt tt-client">Goal</span><span>First 5 leads via digital channels + 10 GMB reviews</span></div>
+    </div>
+
+    <div class="rm-phase" data-num="2">
+      <div class="rm-label">Month 2 · Days 31–60</div>
+      <div class="rm-title">Reach & Trust</div>
+      <div class="task-row"><span class="tt tt-vid">Video</span><span>First Alaya heritage reel + 2 Dr. Subha reels published</span></div>
+      <div class="task-row"><span class="tt tt-mk">Ads</span><span>Campaigns optimised based on Month 1 data. Cost-per-lead target: ₹150–₹350 for center, ₹800–₹2000 for Alaya retreat.</span></div>
+      <div class="task-row"><span class="tt tt-sm">Blog</span><span>First 2 SEO blogs published: "Ayurveda for IT professionals" + "What to expect from Panchakarma"</span></div>
+      <div class="task-row"><span class="tt tt-client">Corporate</span><span>First BNI-introduced corporate wellness pitch completed</span></div>
+      <div class="task-row"><span class="tt tt-br">Alaya</span><span>First Alaya retreat enquiry converted to booking</span></div>
+      <div class="task-row"><span class="tt tt-mk">Goal</span><span>20–35 qualified leads/month. First Alaya guest hosted.</span></div>
+    </div>
+
+    <div class="rm-phase" data-num="3">
+      <div class="rm-label">Month 3 · Days 61–90</div>
+      <div class="rm-title">Convert & Scale</div>
+      <div class="task-row"><span class="tt tt-sm">Products</span><span>WhatsApp-based product ordering system live. Product content begins.</span></div>
+      <div class="task-row"><span class="tt tt-mk">Remarketing</span><span>Meta and Google remarketing campaigns to website visitors and lead form openers who didn't convert.</span></div>
+      <div class="task-row"><span class="tt tt-vid">Testimonial</span><span>First patient transformation video published — the strongest conversion content type.</span></div>
+      <div class="task-row"><span class="tt tt-br">Website</span><span>Website upgrade decision confirmed. If React/Next.js: build begins. If WordPress: Alaya page + booking system professionally upgraded.</span></div>
+      <div class="task-row"><span class="tt tt-mk">Goal</span><span>50+ leads/month, 3–5 Alaya guests booked, 1 corporate client in conversation, first product sales via WhatsApp.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LONG-TERM ─── -->
+<section id="longterm">
+  <div class="sec-header">
+    <span class="sec-num mono">12</span>
+    <h2>Long-Term Vision</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="lead">Pranalaya's long-term story is not a wellness clinic story. It's a heritage brand story — one that earns the right to expand into products, retreats, digital content, and eventually, a name that carries weight far beyond Trivandrum.</p>
+
+  <div class="g3 mt24 mb32">
+    <div class="card card-sage">
+      <div class="kicker" style="color:var(--sage)">Year 1 · Month 3–12</div>
+      <h3 style="font-size:18px">Establish</h3>
+      <p style="font-size:13px;max-width:none">Pranalaya Center consistently generating 50–80 bookings/month. Alaya hosting 4–6 retreat guests/month. Product line officially launched online with e-commerce. GMB in top 3 for all Trivandrum Ayurveda searches. First corporate wellness client (Technopark company) on retainer.</p>
+    </div>
+    <div class="card card-gold">
+      <div class="kicker" style="color:var(--gold)">Year 2</div>
+      <h3 style="font-size:18px">Expand</h3>
+      <p style="font-size:13px;max-width:none">Alaya branded as a recognised Kerala wellness retreat destination — Supriya's international connections leveraged for wellness tourism (London, Dubai). Product line scaled to 10+ SKUs with a distinct sub-brand identity. Pranalaya online consultation service for NRI and international customers. First media feature (Kerala Travel Mart / wellness publications).</p>
+    </div>
+    <div class="card card-rose">
+      <div class="kicker" style="color:var(--rose)">Year 3+</div>
+      <h3 style="font-size:18px">Authority</h3>
+      <p style="font-size:13px;max-width:none">Pranalaya as the authoritative Ayurveda brand in South Kerala. Multiple Alaya rooms, waiting list for retreats. Product range in curated wellness stores. Dr. Subha as a recognised Ayurveda authority with a digital content presence. Possible second Alaya location. Pranalaya Wellness Academy — workshops and certified programs.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>The opportunity in front of Pranalaya is not to be a good Ayurveda clinic. It is to be the Ayurveda institution that Trivandrum's next generation of wellness-conscious professionals grew up trusting. That is a brand worth building with care, patience, and real strategy.</p>
+  </div>
+
+  <div class="card mt32" style="text-align:center;padding:40px 32px;">
+    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;color:var(--text-dim);text-transform:uppercase;margin-bottom:10px">Next Step</div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;margin-bottom:12px">Ready to Begin?</h3>
+    <p style="max-width:560px;margin:0 auto 20px;font-size:14px;color:var(--text-dim)">The recommended starting point is Package 02 — Alaya + Pranalaya Growth. This gives both brands the digital foundation they need, with active lead generation for Technopark and the residential corridor from Month 1.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <div style="text-align:left;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--text-dim);text-transform:uppercase;margin-bottom:4px">Anoop Krishna VA</div>
+        <div style="font-size:13px;color:var(--text-mid)">+91 8907 634900</div>
+        <div style="font-size:13px;color:var(--text-mid)">anoopkrishna@flumenx.com</div>
+      </div>
+      <div style="text-align:left;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--text-dim);text-transform:uppercase;margin-bottom:4px">FlumenX</div>
+        <div style="font-size:13px;color:var(--text-mid)">flumenx.com</div>
+        <div style="font-size:13px;color:var(--text-mid)">Kanjirampara, Trivandrum</div>
+      </div>
+    </div>
+    <div style="margin-top:24px;display:flex;gap:2px;width:200px;margin-left:auto;margin-right:auto;">
+      <div style="flex:1;height:2px;background:var(--earth,#c4874a);border-radius:2px;"></div>
+      <div style="flex:1;height:2px;background:var(--sage);border-radius:2px;"></div>
+      <div style="flex:1;height:2px;background:var(--gold);border-radius:2px;"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// Nav active on scroll
+const secs=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('nav a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navAs.forEach(a=>a.classList.remove('active'));
+      const match=document.querySelector('nav a[href="#'+e.target.id+'"]');
+      if(match)match.classList.add('active');
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(s=>obs.observe(s));
+
+// Tab switch
+function sw(g,id,btn){
+  document.querySelectorAll('[id^="'+g+'-"]').forEach(p=>p.classList.remove('active'));
+  const el=document.getElementById(g+'-'+id);
+  if(el)el.classList.add('active');
+  btn.closest('.tab-bar').querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Reveal on scroll (safe CSS class approach)
+const revEls=document.querySelectorAll('.stat,.card,.pkg-card,.phase-block,.rm-phase,.tl-item');
+revEls.forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(12px)';
+  el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+});
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+      ro.unobserve(e.target);
+    }
+  });
+},{rootMargin:'0px 0px -40px 0px',threshold:0.05});
+revEls.forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
