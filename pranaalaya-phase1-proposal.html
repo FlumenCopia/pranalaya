@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranaalaya — FlumenX Phase 1 Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #111612;
+  --ink-2:     #181e19;
+  --ink-3:     #1f2720;
+  --forest:    #0e2b1c;
+  --gold:      #c8a456;
+  --gold-dim:  rgba(200,164,86,0.10);
+  --sage:      #5ca882;
+  --sage-dim:  rgba(92,168,130,0.10);
+  --earth:     #b87a4a;
+  --earth-dim: rgba(184,122,74,0.10);
+  --rose:      #c47a6e;
+  --rose-dim:  rgba(196,122,110,0.10);
+  --cream:     #f0ebe0;
+  --cream-2:   #e4ddd0;
+  --text:      #ddd8cc;
+  --text-mid:  #9da899;
+  --text-dim:  #636e62;
+  --border:    rgba(255,255,255,0.07);
+  --border-2:  rgba(255,255,255,0.12);
+  --r:         4px;
+  --rl:        8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:2px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;width:224px;height:100vh;background:var(--forest);border-right:1px solid rgba(255,255,255,0.055);display:flex;flex-direction:column;padding:28px 0 20px;overflow-y:auto;z-index:100}
+.nav-logo{padding:0 22px 22px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:14px}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;letter-spacing:0.14em;color:var(--cream);text-transform:uppercase;line-height:1.2}
+.nav-brand span{display:block;font-size:11px;font-family:'DM Mono',monospace;letter-spacing:0.2em;color:rgba(255,255,255,0.3);margin-top:4px;font-weight:300}
+.nav-sec{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.24em;color:rgba(255,255,255,0.25);text-transform:uppercase;padding:0 22px 7px;margin-top:6px}
+nav a{display:flex;align-items:center;gap:9px;padding:7.5px 22px;color:rgba(255,255,255,0.38);text-decoration:none;font-size:12px;letter-spacing:0.02em;transition:all .18s;border-left:2px solid transparent}
+nav a:hover{color:rgba(255,255,255,0.72);background:rgba(255,255,255,0.03)}
+nav a.active{border-left-color:var(--gold);color:var(--gold);background:rgba(200,164,86,0.06)}
+nav a svg{width:11px;height:11px;opacity:.65;flex-shrink:0}
+nav a:hover svg,nav a.active svg{opacity:1}
+.nav-hr{border:none;border-top:1px solid rgba(255,255,255,0.055);margin:10px 0}
+.nav-foot{margin-top:auto;padding:14px 22px;border-top:1px solid rgba(255,255,255,0.055);font-family:'DM Mono',monospace;font-size:8.5px;color:rgba(255,255,255,0.22);letter-spacing:0.08em;line-height:1.7}
+
+/* ── LAYOUT ── */
+main{margin-left:224px;min-height:100vh}
+section{padding:68px 56px;border-bottom:1px solid rgba(255,255,255,0.05)}
+@media(max-width:860px){main{margin-left:0}nav{display:none}section{padding:48px 22px}}
+
+/* ── TYPE ── */
+.eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.28em;color:var(--text-dim);text-transform:uppercase;display:block;margin-bottom:12px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,42px);font-weight:400;line-height:1.1;color:var(--cream);margin-bottom:8px}
+h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--cream);margin-bottom:8px}
+h4{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:11px;font-weight:400}
+p{color:var(--text-mid);font-size:13.5px;line-height:1.75;margin-bottom:13px;max-width:660px}
+.lead{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.7vw,19px);font-weight:300;font-style:italic;color:var(--text-mid);line-height:1.6;max-width:680px;margin-bottom:28px}
+.sh{display:flex;align-items:baseline;gap:18px;margin-bottom:40px}
+.sh-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:.1em;flex-shrink:0}
+.sh-line{flex:1;height:1px;background:rgba(255,255,255,0.065)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:68px 56px;background:linear-gradient(155deg,#091510 0%,var(--forest) 50%,#0f1e14 100%);max-width:none;position:relative;overflow:hidden;border-bottom:none}
+.hero-watermark{position:absolute;top:50%;right:0;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(100px,14vw,200px);font-weight:300;color:rgba(255,255,255,0.022);line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.04em}
+.hero-bar{display:flex;gap:3px;margin-bottom:32px;width:56px}
+.hb{height:2px;border-radius:2px}
+.hb1{flex:3;background:var(--gold)}
+.hb2{flex:2;background:var(--sage)}
+.hb3{flex:1;background:var(--earth)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,66px);font-weight:300;line-height:1.05;color:var(--cream);margin-bottom:18px;letter-spacing:-0.01em}
+h1 em{font-style:italic;color:var(--gold)}
+.hero-meta{display:flex;gap:32px;flex-wrap:wrap;margin-top:32px}
+.hm{display:flex;flex-direction:column;gap:2px}
+.hm-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase}
+.hm-v{font-size:12.5px;color:var(--text-mid)}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:22px}
+.htag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--text-dim)}
+
+/* ── CARDS ── */
+.card{background:var(--ink-2);border:1px solid var(--border);border-radius:var(--rl);padding:24px 26px}
+.card-g{border-left:3px solid var(--gold)}
+.card-s{border-left:3px solid var(--sage)}
+.card-e{border-left:3px solid var(--earth)}
+.card-r{border-left:3px solid var(--rose)}
+
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:800px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* ── PKG CARDS ── */
+.pkg{background:var(--ink-2);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;position:relative;transition:border-color .25s}
+.pkg:hover{border-color:var(--border-2)}
+.pkg.rec{border-color:var(--gold)}
+.pkg-head{padding:22px 22px 16px;border-bottom:1px solid var(--border)}
+.pkg-eyebrow{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--cream);margin-bottom:3px}
+.pkg-sub{font-size:12px;color:var(--text-dim);line-height:1.45}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--cream);line-height:1;margin-top:12px}
+.pkg-price small{font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text-dim);font-weight:400}
+.pkg-body{padding:16px 22px 22px}
+.pf{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--text-mid);padding:5.5px 0;border-bottom:1px solid rgba(255,255,255,0.035);line-height:1.5}
+.pf:last-of-type{border-bottom:none}
+.pf-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.pf strong{color:var(--text);font-weight:500}
+.pf.hl{color:var(--gold)}
+.pf.hl strong{color:var(--gold)}
+.rec-tag{position:absolute;top:11px;right:11px;font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;background:var(--gold-dim);color:var(--gold);border:1px solid rgba(200,164,86,0.25);border-radius:2px}
+
+/* ── TAG ── */
+.tt{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0}
+.tt-g{background:rgba(92,168,130,.14);color:var(--sage)}
+.tt-o{background:rgba(200,164,86,.12);color:var(--gold)}
+.tt-e{background:rgba(184,122,74,.12);color:var(--earth)}
+.tt-r{background:rgba(196,122,110,.12);color:var(--rose)}
+.tt-b{background:rgba(255,255,255,.07);color:var(--text-dim)}
+
+/* ── ROW ── */
+.row{display:flex;gap:11px;align-items:flex-start;padding:8.5px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12.5px;color:var(--text-mid)}
+.row:last-child{border-bottom:none}
+.row strong{color:var(--text);font-weight:500}
+
+/* ── BUDGET BLOCK ── */
+.bline{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.bline:last-child{border-bottom:none;padding-bottom:0}
+.bline-label{color:var(--text-mid)}
+.bline-val{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--cream)}
+.bline-val.gold{color:var(--gold)}
+.bline-val.dim{color:var(--text-dim);font-size:13px;font-family:'DM Sans',sans-serif}
+.btotal{display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;margin-top:6px;border-top:1px solid rgba(255,255,255,.1)}
+.btotal-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.btotal-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--cream)}
+
+/* ── BRAND ARCH ── */
+.ba-parent{background:linear-gradient(135deg,var(--forest),rgba(14,43,28,.5));border:1px solid rgba(200,164,86,.2);border-radius:var(--rl);padding:28px 32px;text-align:center;margin-bottom:3px;position:relative}
+.ba-connector{display:flex;justify-content:center;gap:0;margin:0 auto 3px;width:100%}
+.ba-line{flex:1;height:1px;background:rgba(200,164,86,.2);align-self:center}
+.ba-line-v{width:1px;height:20px;background:rgba(200,164,86,.2);margin:0 auto}
+.ba-children{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:3px}
+.ba-child{border:1px solid var(--border);border-radius:var(--r);padding:20px 16px;text-align:center;position:relative;overflow:hidden}
+.ba-child::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.ba-child.pranaalaya::before{background:var(--sage)}
+.ba-child.poorna::before{background:var(--earth)}
+.ba-child.future::before{background:rgba(255,255,255,.12)}
+.ba-icon-wrap{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.ba-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--cream);margin-bottom:3px}
+.ba-brand-role{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);margin-bottom:9px}
+.ba-color-row{display:flex;gap:4px;justify-content:center;margin-top:8px}
+.ba-swatch{width:14px;height:14px;border-radius:3px}
+.ba-system{background:var(--ink-2);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-top:3px}
+
+/* ── PHASE STRIP ── */
+.phases{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.phase{background:var(--ink-2);border:1px solid var(--border);border-radius:var(--rl);padding:22px 24px;position:relative;overflow:hidden}
+.phase::after{content:attr(data-n);position:absolute;right:-6px;bottom:-14px;font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:rgba(255,255,255,.025);line-height:1;pointer-events:none}
+.phase-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px}
+.phase-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:var(--cream);margin-bottom:13px}
+
+/* ── PULL QUOTE ── */
+.pq{border-left:3px solid var(--gold);padding:16px 22px;margin:24px 0;background:var(--gold-dim);border-radius:0 var(--r) var(--r) 0}
+.pq p{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.8vw,19px);font-style:italic;font-weight:300;color:var(--cream);margin-bottom:0;max-width:none;line-height:1.5}
+
+/* ── NOTE BOX ── */
+.note{background:var(--sage-dim);border:1px solid rgba(92,168,130,.2);border-radius:var(--rl);padding:20px 22px;margin:18px 0}
+.note h4{color:var(--sage);margin-bottom:8px}
+.note-warn{background:var(--earth-dim);border-color:rgba(184,122,74,.2)}
+.note-warn h4{color:var(--earth)}
+
+/* ── TIMELINE DOTS ── */
+.tl-row{display:flex;gap:0;margin:24px 0}
+.tl-step{flex:1;position:relative;padding-top:20px;text-align:center}
+.tl-step::before{content:'';position:absolute;top:6px;left:0;right:0;height:1px;background:rgba(255,255,255,.08)}
+.tl-step:first-child::before{left:50%}
+.tl-step:last-child::before{right:50%}
+.tl-dot{width:12px;height:12px;border-radius:50%;margin:0 auto;position:relative;top:-14px;border:1px solid rgba(255,255,255,.15);background:var(--ink-2)}
+.tl-dot.active{background:var(--gold);border-color:var(--gold)}
+.tl-dot.next{background:var(--sage);border-color:var(--sage)}
+.tl-step-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px}
+.tl-step-title{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--cream)}
+.tl-step-sub{font-size:11px;color:var(--text-dim);margin-top:2px;line-height:1.4}
+
+/* ── UTILS ── */
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mt20{margin-top:20px}.mt24{margin-top:24px}.mt32{margin-top:32px}.mt40{margin-top:40px}
+.mb8{margin-bottom:8px}.mb12{margin-bottom:12px}.mb16{margin-bottom:16px}.mb20{margin-bottom:20px}.mb24{margin-bottom:24px}
+.text-gold{color:var(--gold)}.text-sage{color:var(--sage)}.text-earth{color:var(--earth)}.text-rose{color:var(--rose)}.text-dim{color:var(--text-dim)}
+.divider{height:1px;background:rgba(255,255,255,.06);margin:18px 0}
+.serif{font-family:'Cormorant Garamond',serif}
+.mono{font-family:'DM Mono',monospace}
+
+/* ── REVEAL ANIMATION ── */
+.rv{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.rv.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-brand">Pranaalaya
+      <span>FlumenX Proposal · 2025</span>
+    </div>
+  </div>
+
+  <span class="nav-sec">Overview</span>
+  <a href="#hero" class="active">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="5"/></svg>
+    Introduction
+  </a>
+  <a href="#brand">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 2l5.5 10H1.5L7 2z"/></svg>
+    Brand Architecture
+  </a>
+
+  <hr class="nav-hr">
+  <span class="nav-sec">Packages</span>
+  <a href="#phase1">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="4" height="4" rx=".5"/><rect x="8" y="2" width="4" height="4" rx=".5"/><rect x="2" y="8" width="4" height="4" rx=".5"/><rect x="8" y="8" width="4" height="4" rx=".5"/></svg>
+    Phase 1 — Start Now
+  </a>
+  <a href="#ads">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="1,10 4,6 7,8 12,3"/></svg>
+    Ad Budget & Management
+  </a>
+  <a href="#branding">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1l1.5 3 3.5.5-2.5 2.5.5 3.5L7 9l-3 1.5.5-3.5L2 4.5 5.5 4z"/></svg>
+    Branding Package
+  </a>
+  <a href="#phase2">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1v12M1 7h12"/></svg>
+    Phase 2 — Upgrade
+  </a>
+
+  <hr class="nav-hr">
+  <span class="nav-sec">Summary</span>
+  <a href="#summary">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 4h10M2 7h7M2 10h5"/></svg>
+    Investment Summary
+  </a>
+  <a href="#next">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+    Next Steps
+  </a>
+
+  <div class="nav-foot">
+    Pranaalaya Good Earth Wellness<br>
+    Karimanal, Trivandrum<br>
+    FlumenX · Anoop Krishna VA
+  </div>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-watermark">Alaya</div>
+  <div class="hero-bar"><div class="hb hb1"></div><div class="hb hb2"></div><div class="hb hb3"></div></div>
+  <span class="eyebrow">FlumenX · Phase 1 Proposal · Karimanal, Trivandrum</span>
+  <h1>Where We Begin —<br><em>and Where We're Going</em></h1>
+  <p class="lead">A focused, honest plan to get Pranaalaya's digital presence live, leads flowing, and the brand architecture built right — from the very first day.</p>
+  <div class="hero-meta">
+    <div class="hm"><span class="hm-l">Client</span><span class="hm-v">Supriya Chellappan · Pranaalaya</span></div>
+    <div class="hm"><span class="hm-l">Locations</span><span class="hm-v">Karimanal + Manacaud Centre</span></div>
+    <div class="hm"><span class="hm-l">Prepared by</span><span class="hm-v">Anoop Krishna VA · FlumenX</span></div>
+    <div class="hm"><span class="hm-l">Proposal Type</span><span class="hm-v">Phase 1 Start + Brand Architecture</span></div>
+  </div>
+  <div class="hero-tags">
+    <span class="htag">Pranaalaya · Karimanal</span>
+    <span class="htag">Alaya Parent Brand</span>
+    <span class="htag">Poorna Annapoorna</span>
+    <span class="htag">Social Media + Ads</span>
+    <span class="htag">Branding</span>
+  </div>
+</section>
+
+<!-- ─── BRAND ARCHITECTURE ─── -->
+<section id="brand">
+  <div class="sh"><span class="sh-num mono">01</span><h2>Brand Architecture</h2><div class="sh-line"></div></div>
+
+  <p class="lead">This is the most important strategic decision in this document — and it shapes everything that follows. Getting the brand structure right now means every rupee spent on marketing builds something permanent.</p>
+
+  <p>The client's immediate priority is clear: focus on <strong class="text-sage">Pranaalaya first</strong> — generate leads and awareness for the therapy centre at Karimanal and Manacaud. That is the operational goal and we will execute on it fully. At the same time, we want to share a brand architecture suggestion that adds long-term value without slowing down anything in the short term.</p>
+
+  <div class="pq">
+    <p>Our suggestion: build <strong>Alaya</strong> as the parent brand — a single icon, a shared visual language — and let Pranaalaya, Poorna Annapoorna, and any future verticals grow under it with their own colour and personality. This way, the brand you build for Pranaalaya today automatically becomes equity for everything that comes after.</p>
+  </div>
+
+  <!-- ARCHITECTURE DIAGRAM -->
+  <div class="mt32">
+    <h4 class="mb16">Proposed Brand Hierarchy</h4>
+
+    <!-- Parent -->
+    <div class="ba-parent rv">
+      <div style="display:inline-flex;align-items:center;gap:16px;margin-bottom:12px">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(200,164,86,.12);border:1px solid rgba(200,164,86,.3);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4">
+            <path d="M12 2C8 2 4 6 4 10c0 5 8 12 8 12s8-7 8-12c0-4-4-8-8-8z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+        </div>
+        <div style="text-align:left;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--cream);letter-spacing:.08em;">ALAYA</div>
+          <div style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;">Parent Brand · The House of Wellness</div>
+        </div>
+      </div>
+      <p style="font-size:13px;max-width:560px;margin:0 auto;color:rgba(255,255,255,.45);line-height:1.6">One root icon. One typographic family. The umbrella under which all verticals live, share equity, and grow together.</p>
+      <div style="display:flex;gap:6px;justify-content:center;margin-top:14px">
+        <div class="ba-swatch" style="background:var(--gold)"></div>
+        <div class="ba-swatch" style="background:#c8b07a"></div>
+        <div class="ba-swatch" style="background:var(--forest)"></div>
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,.3);align-self:center;margin-left:4px">Gold · Forest · Cream — heritage, timeless</div>
+      </div>
+    </div>
+
+    <!-- Connector line -->
+    <div class="ba-line-v"></div>
+
+    <!-- Children -->
+    <div class="ba-children">
+
+      <!-- Pranaalaya -->
+      <div class="ba-child pranaalaya rv">
+        <div class="ba-icon-wrap" style="background:var(--sage-dim);border:1px solid rgba(92,168,130,.25);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.4">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="ba-brand-name">Pranaalaya</div>
+        <div class="ba-brand-role">Therapy Centre</div>
+        <p style="font-size:11.5px;color:var(--text-dim);line-height:1.5;margin-bottom:0">Karimanal + Manacaud<br>Authentic Ayurvedic treatments, consultations, house visits</p>
+        <div class="ba-color-row">
+          <div class="ba-swatch" style="background:var(--sage)"></div>
+          <div class="ba-swatch" style="background:#2e7a58"></div>
+          <div class="ba-swatch" style="background:#d4ede2"></div>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.1em;color:var(--sage);margin-top:6px">Sage + Teal · Healing, Clinical</div>
+      </div>
+
+      <!-- Poorna Annapoorna -->
+      <div class="ba-child poorna rv">
+        <div class="ba-icon-wrap" style="background:var(--earth-dim);border:1px solid rgba(184,122,74,.25);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--earth)" stroke-width="1.4">
+            <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/>
+            <path d="M12 6c0 0-5 3-5 7s5 5 5 5 5-1 5-5-5-7-5-7z"/>
+          </svg>
+        </div>
+        <div class="ba-brand-name">Poorna Annapoorna</div>
+        <div class="ba-brand-role">Products Brand</div>
+        <p style="font-size:11.5px;color:var(--text-dim);line-height:1.5;margin-bottom:0">Ayurvedic wellness products<br>Oils, formulations, wellness essentials</p>
+        <div class="ba-color-row">
+          <div class="ba-swatch" style="background:var(--earth)"></div>
+          <div class="ba-swatch" style="background:#d4883c"></div>
+          <div class="ba-swatch" style="background:#f5e4c8"></div>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.1em;color:var(--earth);margin-top:6px">Earth + Saffron · Nourishment, Purity</div>
+      </div>
+
+      <!-- Future -->
+      <div class="ba-child future rv" style="background:rgba(255,255,255,.015);opacity:.65">
+        <div class="ba-icon-wrap" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.4">
+            <path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="ba-brand-name" style="color:var(--text-dim)">Future Vertical</div>
+        <div class="ba-brand-role">To Be Named</div>
+        <p style="font-size:11.5px;color:var(--text-dim);line-height:1.5;margin-bottom:0">The Alaya system is open and ready. A fourth vertical — retreat, education, or digital — simply inherits the parent mark with a new colour.</p>
+        <div style="font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.1em;color:rgba(255,255,255,.2);margin-top:14px">System-ready · Expandable</div>
+      </div>
+    </div>
+
+    <!-- Shared system -->
+    <div class="ba-system rv mt12">
+      <h4 class="mb12">Shared Brand System — What Stays Constant Across All Verticals</h4>
+      <div class="g4" style="gap:14px">
+        <div>
+          <div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Icon</div>
+          <p style="font-size:12px;max-width:none;margin-bottom:0;color:var(--text-dim)">One Alaya parent mark — a single abstracted symbol rooted in Kerala / Ayurvedic tradition. All three brands use this icon. Only the colour changes.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Typography</div>
+          <p style="font-size:12px;max-width:none;margin-bottom:0;color:var(--text-dim)">One serif (Cormorant or similar heritage face) + one clean sans. Consistent across all three brands — only weight and application varies.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Colour</div>
+          <p style="font-size:12px;max-width:none;margin-bottom:0;color:var(--text-dim)">Each vertical has its own primary and secondary colour palette. Alaya's gold threads through all — the connective identity signal.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Imagery</div>
+          <p style="font-size:12px;max-width:none;margin-bottom:0;color:var(--text-dim)">Each brand has its own photography direction, tone, and content style — clinical for Pranaalaya, earthy for Poorna Annapoorna, architectural for Alaya.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note mt24 rv">
+    <h4>On the Client's Priority — Pranaalaya First, Absolutely</h4>
+    <p style="font-size:13px;max-width:none;margin-bottom:0">This brand architecture doesn't slow down the Pranaalaya launch by a single day. We design the Alaya parent icon and the Pranaalaya sub-brand together as part of the branding package — it takes the same amount of time as designing Pranaalaya alone, and you end up with a system that works for all three brands. The only difference is we're building a foundation instead of a one-off logo.</p>
+  </div>
+</section>
+
+<!-- ─── PHASE 1 ─── -->
+<section id="phase1">
+  <div class="sh"><span class="sh-num mono">02</span><h2>Phase 1 — Start Now</h2><div class="sh-line"></div></div>
+
+  <p class="lead">Amal's shoot is two weeks away. Here is what we recommend — and a candid note on how to make that time work harder for you.</p>
+
+  <!-- Timeline strip -->
+  <div class="tl-row rv">
+    <div class="tl-step">
+      <div class="tl-dot active"></div>
+      <div class="tl-step-label">Today</div>
+      <div class="tl-step-title">Kickoff</div>
+      <div class="tl-step-sub">Strategy, branding,<br>digital setup begins</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot active"></div>
+      <div class="tl-step-label">Week 1</div>
+      <div class="tl-step-title">Foundation</div>
+      <div class="tl-step-sub">Brand guidelines, GMB,<br>content plan, pixels</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot active"></div>
+      <div class="tl-step-label">Week 2</div>
+      <div class="tl-step-title">Content Live</div>
+      <div class="tl-step-sub">First posts, first ads,<br>WhatsApp leads active</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot next"></div>
+      <div class="tl-step-label">Week 3–4</div>
+      <div class="tl-step-title">Amal Shoot</div>
+      <div class="tl-step-sub">Video content added<br>to running campaigns</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot next"></div>
+      <div class="tl-step-label">Month 2</div>
+      <div class="tl-step-title">Upgrade</div>
+      <div class="tl-step-sub">Move to ₹32K package<br>+ full Alaya launch</div>
+    </div>
+  </div>
+
+  <!-- Honest note -->
+  <div class="note-warn note rv mt8">
+    <h4>An Honest Observation</h4>
+    <p style="font-size:13.5px;max-width:none;margin-bottom:6px">With respect — the two-week wait for the shoot doesn't actually need to pause anything. We need roughly one week to complete the brand guidelines, set up GMB, install ad pixels, build the content calendar, and create the first round of graphic-based content (treatment posters, doctor introduction, package cards). That's all work that has to happen regardless of Amal's shoot date.</p>
+    <p style="font-size:13.5px;max-width:none;margin-bottom:0">So if we start at ₹32,000 today, we use Week 1 for all the foundation work, Week 2 for first posts and ad campaigns — and when Amal delivers the video files, they slot directly into a content system that's already optimised and running. The video component of the monthly content count would still be fully met once Amal's edits are in. The only difference is we'd be three weeks ahead on lead generation.</p>
+  </div>
+
+  <p style="font-size:13px;margin-top:16px;color:var(--text-dim)">That said, we understand if the phased approach feels more comfortable. The ₹18,000 starter plan below is a solid beginning — and the upgrade path to ₹32,000 is clearly defined.</p>
+
+  <!-- Starter Package -->
+  <div class="mt32">
+    <h4 class="mb16">Social Media Package — Phase 1</h4>
+    <div class="g2" style="align-items:start">
+      <div class="pkg rv">
+        <div class="pkg-head">
+          <div class="pkg-eyebrow">Starter · Active Now</div>
+          <div class="pkg-name">Pranaalaya Presence</div>
+          <div class="pkg-sub">Social media foundation while the full shoot is being prepared</div>
+          <div class="pkg-price">₹18,000 <small>/ month</small></div>
+        </div>
+        <div class="pkg-body">
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>6 Static Posts</strong> — Treatment spotlights, package cards, doctor introduction, GMB-synced</span></div>
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>4 Reels / Short Videos</strong> — Text-motion reels, treatment walkthroughs, educational content (no shoot needed)</span></div>
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>GMB Full Setup + Active Posting</strong> — Photos, services, categories, weekly posts, review management</span></div>
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>Daily Stories × 5</strong> — Scheduled across the month</span></div>
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>WhatsApp Business Setup</strong> — Auto-reply, catalogue, click-to-WhatsApp links in all posts</span></div>
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>2 Platforms</strong> — Instagram + Facebook</span></div>
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>Monthly Content Calendar</strong> — Captions, hashtags, posting schedule</span></div>
+          <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>Monthly Performance Report</strong></span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card card-s rv mb16">
+          <h4>What We Can Do Right Now — Without the Shoot</h4>
+          <div class="row"><span class="tt tt-g">Brand</span><span>Pranaalaya brand identity (logo, colours, type) + brand guidelines document under the Alaya system</span></div>
+          <div class="row"><span class="tt tt-g">GMB</span><span>Google My Business fully optimised for Karimanal + Manacaud — photos from existing assets, all services listed, first 5 posts, get first reviews from existing patients</span></div>
+          <div class="row"><span class="tt tt-g">Content</span><span>6 treatment/package graphic posts created and scheduled — no video required</span></div>
+          <div class="row"><span class="tt tt-g">Tracking</span><span>Google Analytics 4 + Meta Pixel installed on website — so all ad spend from Week 2 has data</span></div>
+          <div class="row"><span class="tt tt-g">Strategy</span><span>Full 3-month content calendar planned, approved, and ready to execute</span></div>
+        </div>
+        <div class="card rv">
+          <h4>Once Amal Delivers</h4>
+          <div class="row"><span class="tt tt-o">Video</span><span>Amal's video files are integrated directly into the content calendar — Reels, YouTube Shorts, treatment showcase content all slotted in</span></div>
+          <div class="row"><span class="tt tt-o">Quality</span><span>We handle captions, overlays, subtitles, hashtags, and publishing from Amal's raw-edited files</span></div>
+          <div class="row"><span class="tt tt-o">Numbers</span><span>Monthly Reel count is fully met by combining Amal's cinematic videos + our text-motion Reels. No gap in content delivery.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ADS ─── -->
+<section id="ads">
+  <div class="sh"><span class="sh-num mono">03</span><h2>Ad Budget & Management</h2><div class="sh-line"></div></div>
+
+  <p class="lead">Ads are separate from the social media management fee — the ad spend goes directly to Meta / Google, and FlumenX charges a management fee for strategy, setup, targeting, monitoring, and optimisation.</p>
+
+  <div class="g2" style="align-items:start">
+    <div>
+      <h4>Suggested Monthly Ad Budget — Phase 1</h4>
+      <div class="card rv mt8">
+        <div class="bline">
+          <span class="bline-label">Google Ads — Local search (Karimanal, Manacaud, Technopark area)</span>
+          <span class="bline-val">₹6,000</span>
+        </div>
+        <div class="bline">
+          <span class="bline-label">Meta Ads — Instagram + Facebook lead campaigns</span>
+          <span class="bline-val">₹5,000</span>
+        </div>
+        <div class="bline">
+          <span class="bline-label">Total suggested ad spend</span>
+          <span class="bline-val text-gold">₹11,000</span>
+        </div>
+        <div class="bline">
+          <span class="bline-label text-dim" style="font-size:12px">Ad management service charge (30% of ₹11,000)</span>
+          <span class="bline-val" style="font-size:16px;color:var(--text-mid)">₹3,300</span>
+        </div>
+        <div class="btotal">
+          <span class="btotal-label">Total Ads Cost (Spend + Management)</span>
+          <span class="btotal-val">₹14,300</span>
+        </div>
+      </div>
+      <p style="font-size:11.5px;color:var(--text-dim);margin-top:8px;max-width:none">Ad spend is paid directly to Google / Meta by the client. FlumenX charges only the 30% management fee (₹3,300/month). The ₹11,000 spend budget is a starting recommendation — it can be increased or decreased based on lead cost performance after the first 2 weeks of data.</p>
+    </div>
+
+    <div>
+      <h4>What the Ad Management Fee Covers</h4>
+      <div class="card rv mt8">
+        <div class="row"><span class="tt tt-g">Setup</span><span>Campaign creation, ad sets, audience targeting for Karimanal + Manacaud + Technopark + residential corridors</span></div>
+        <div class="row"><span class="tt tt-g">Creative</span><span>Ad creative design (static + Reel-format ads) aligned with brand guidelines</span></div>
+        <div class="row"><span class="tt tt-g">Targeting</span><span>Custom audiences: Technopark job titles, Karimanal-area residential targeting, interest-based (yoga, wellness, Ayurveda)</span></div>
+        <div class="row"><span class="tt tt-g">WhatsApp</span><span>Click-to-WhatsApp ad format setup — the most effective lead generation format for local wellness businesses</span></div>
+        <div class="row"><span class="tt tt-g">Reporting</span><span>Weekly lead count, cost-per-lead, and spend breakdown shared with Supriya</span></div>
+        <div class="row"><span class="tt tt-g">Optimise</span><span>Underperforming ad sets paused, budget shifted to best-performing audience — every 2 weeks minimum</span></div>
+      </div>
+
+      <div class="note mt16 rv">
+        <h4>Why Only Ads Management Fee — For Now</h4>
+        <p style="font-size:13px;max-width:none;margin-bottom:0">We are not applying a full digital marketing retainer charge for ads in Phase 1 because the package will upgrade to ₹32,000 once the Alaya shoot is ready — and the ads management fee is restructured into that combined package at that point. This keeps Phase 1 lean and fair.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BRANDING ─── -->
+<section id="branding">
+  <div class="sh"><span class="sh-num mono">04</span><h2>Branding Package</h2><div class="sh-line"></div></div>
+
+  <p class="lead">Brand first, always. Every rupee spent on ads and content works harder when the brand identity is clear, consistent, and premium. This package builds the Alaya parent system and Pranaalaya's visual identity together.</p>
+
+  <div class="g2" style="align-items:start">
+    <div class="pkg rec rv">
+      <div class="rec-tag">Recommended · Start Immediately</div>
+      <div class="pkg-head">
+        <div class="pkg-eyebrow">One-Time · Brand Foundation</div>
+        <div class="pkg-name">Alaya Brand System</div>
+        <div class="pkg-sub">Parent icon + Pranaalaya sub-brand + Poorna Annapoorna sub-brand. One investment. Three brands ready.</div>
+        <div class="pkg-price" style="color:var(--gold)">₹9,999 <small>one-time</small></div>
+      </div>
+      <div class="pkg-body">
+        <div class="pf hl"><div class="pf-dot" style="background:var(--gold)"></div><span><strong>Alaya Parent Logo / Icon</strong> — One mark rooted in Kerala / Ayurvedic symbolism. Works across all three brands. Delivered in all formats.</span></div>
+        <div class="pf hl"><div class="pf-dot" style="background:var(--gold)"></div><span><strong>Pranaalaya Sub-Brand Identity</strong> — Logo lockup using the Alaya icon + Pranaalaya wordmark. Sage/teal palette. Full brand set.</span></div>
+        <div class="pf hl"><div class="pf-dot" style="background:var(--gold)"></div><span><strong>Poorna Annapoorna Sub-Brand Identity</strong> — Earth/saffron palette variant. Product-ready. Consistent with parent system.</span></div>
+        <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>Brand Guidelines Document</strong> — Colour codes, type sizes, icon usage rules, do's and don'ts. Anyone can apply it consistently.</span></div>
+        <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>Typography Selection</strong> — Two fonts (display + body) that work across print, digital, packaging, and social</span></div>
+        <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>Social Media Templates</strong> — 5 post templates per brand (15 total), Canva-editable, aligned with brand guidelines</span></div>
+        <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>Business Card Design</strong> — For Dr. Subha + Supriya using the new Pranaalaya brand</span></div>
+        <div class="pf"><div class="pf-dot" style="background:var(--sage)"></div><span><strong>All Files Delivered</strong> — SVG, PNG, PDF. Print and digital. Yours forever, no dependency on us.</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card card-g rv mb16">
+        <h4>Why Building All Three Brands Now Costs the Same</h4>
+        <p style="font-size:13px;max-width:none;margin-bottom:0">If we design the Alaya parent icon thoughtfully now, applying it to Pranaalaya and Poorna Annapoorna is mostly a colour and wordmark exercise — not a full design process. Doing them separately later would cost ₹5,000–₹8,000 each. Doing them together now within the system costs the same as doing one properly. There is no additional cost for getting this right the first time.</p>
+      </div>
+
+      <div class="card rv">
+        <h4>Delivery Timeline</h4>
+        <div class="row"><span class="tt tt-o">Day 1–3</span><span>Initial brand direction: mood board, icon concept sketches, colour palette shortlist — Supriya approves direction before we proceed</span></div>
+        <div class="row"><span class="tt tt-o">Day 4–6</span><span>Logo concepts developed — 2 icon options, 2 wordmark options per brand. First round review.</span></div>
+        <div class="row"><span class="tt tt-o">Day 7–9</span><span>Refinement based on feedback. Final logo lockup completed for all three brands.</span></div>
+        <div class="row"><span class="tt tt-o">Day 10–12</span><span>Brand guidelines document, social templates, business card design. Final file package delivered.</span></div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--text-dim)">Total delivery: 12 working days · 2 revision rounds included</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PHASE 2 ─── -->
+<section id="phase2">
+  <div class="sh"><span class="sh-num mono">05</span><h2>Phase 2 — The Upgrade</h2><div class="sh-line"></div></div>
+
+  <p class="lead">When Amal's shoot is complete and we have high-quality visual assets, we move to the full Growth package. Here's exactly what changes and what it unlocks.</p>
+
+  <div class="phases">
+    <div class="phase rv" data-n="1">
+      <div class="phase-label">Phase 1 · Active Now</div>
+      <div class="phase-title">Starter Package</div>
+      <div class="row"><span class="tt tt-b">Social</span><span>₹18,000 / month — graphic content, basic Reels</span></div>
+      <div class="row"><span class="tt tt-b">Ads</span><span>₹11,000 spend + ₹3,300 management</span></div>
+      <div class="row"><span class="tt tt-b">Brand</span><span>₹9,999 one-time — building now</span></div>
+      <div class="row"><span class="tt tt-b">Focus</span><span>Pranaalaya Centre — Karimanal + Manacaud leads</span></div>
+      <div class="divider"></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--cream)">₹21,300<small style="font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text-dim)"> / month</small></div>
+      <div style="font-size:11px;color:var(--text-dim);margin-top:3px">+ ₹9,999 branding (once)</div>
+    </div>
+
+    <div class="phase rv" data-n="2" style="border-color:var(--gold);">
+      <div class="phase-label" style="color:var(--gold)">Phase 2 · When Alaya Shoot Is Ready</div>
+      <div class="phase-title">Growth Package</div>
+      <div class="row"><span class="tt tt-o">Social</span><span>₹32,000 / month — full video content, Alaya + Pranaalaya both active</span></div>
+      <div class="row"><span class="tt tt-o">Ads</span><span>₹15,000 spend (increased) + ₹4,500 management</span></div>
+      <div class="row"><span class="tt tt-o">Video</span><span>Amal's edited files integrated — cinematic Reels + showcase content</span></div>
+      <div class="row"><span class="tt tt-o">Alaya</span><span>Heritage retreat launched digitally — Instagram, Google Ads, booking enquiries</span></div>
+      <div class="row"><span class="tt tt-o">Blogs</span><span>2 SEO blogs per month — keyword-led long-form content begins</span></div>
+      <div class="divider"></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--gold)">₹36,500<small style="font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text-dim)"> / month</small></div>
+      <div style="font-size:11px;color:var(--text-dim);margin-top:3px">No one-time charges — branding already done</div>
+    </div>
+  </div>
+
+  <div class="note mt20 rv">
+    <h4>The Amal Variable — and How It Can Work in Your Favour</h4>
+    <p style="font-size:13.5px;max-width:none;margin-bottom:0">If Amal shoots and edits a defined number of videos each month — specifically the cinematic Alaya heritage content and treatment showcase B-roll — that reduces the video production burden on FlumenX's side of the package. We're happy to have that conversation directly once we know the number of videos Amal will commit to producing and editing monthly. Depending on that count, there may be room to adjust the ₹32,000 package fee slightly in a way that makes sense for everyone. We'll work that out together.</p>
+  </div>
+</section>
+
+<!-- ─── SUMMARY ─── -->
+<section id="summary">
+  <div class="sh"><span class="sh-num mono">06</span><h2>Investment Summary</h2><div class="sh-line"></div></div>
+
+  <div class="g2" style="align-items:start">
+    <div>
+      <h4>Phase 1 · Month 1 Total</h4>
+      <div class="card card-g rv mt8">
+        <div class="bline"><span class="bline-label">Social Media — Starter Package</span><span class="bline-val">₹18,000</span></div>
+        <div class="bline"><span class="bline-label">Ad Spend — Google + Meta (suggested)</span><span class="bline-val">₹11,000</span></div>
+        <div class="bline"><span class="bline-label">Ad Management Fee (30% of ₹11,000)</span><span class="bline-val">₹3,300</span></div>
+        <div class="bline"><span class="bline-label" style="color:var(--gold)">Branding Package (one-time)</span><span class="bline-val gold">₹9,999</span></div>
+        <div class="btotal"><span class="btotal-label">Month 1 Investment</span><span class="btotal-val">₹42,299</span></div>
+        <div style="font-size:11.5px;color:var(--text-dim);margin-top:8px">Of which ₹11,000 is direct ad spend (paid to Google/Meta) and ₹9,999 is a one-time brand investment. Recurring monthly cost from Month 2 onwards: ₹21,300</div>
+      </div>
+    </div>
+
+    <div>
+      <h4>Phase 2 · From Month 2 / Shoot Ready</h4>
+      <div class="card rv mt8">
+        <div class="bline"><span class="bline-label">Social Media — Growth Package</span><span class="bline-val text-gold">₹32,000</span></div>
+        <div class="bline"><span class="bline-label">Ad Spend — Google + Meta (expanded)</span><span class="bline-val">₹15,000</span></div>
+        <div class="bline"><span class="bline-label">Ad Management Fee (30% of ₹15,000)</span><span class="bline-val">₹4,500</span></div>
+        <div class="btotal"><span class="btotal-label">Monthly Investment (Phase 2)</span><span class="btotal-val" style="color:var(--gold)">₹51,500</span></div>
+        <div style="font-size:11.5px;color:var(--text-dim);margin-top:8px">Of which ₹15,000 is direct ad spend. Branding already done — no additional one-time charges.</div>
+      </div>
+      <div class="card rv mt12" style="padding:16px 18px;background:rgba(200,164,86,.04);">
+        <p style="font-size:12px;color:var(--text-dim);max-width:none;margin-bottom:0;line-height:1.65"><strong class="text-gold">If Amal's video contribution is confirmed</strong> — once we know how many edited videos Amal delivers monthly, we can revisit the ₹32,000 package rate and have an open conversation about what adjustment makes sense. That discussion happens directly, person to person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEXT STEPS ─── -->
+<section id="next">
+  <div class="sh"><span class="sh-num mono">07</span><h2>Next Steps</h2><div class="sh-line"></div></div>
+
+  <p class="lead">Three decisions. That's all that's needed to begin. Everything else follows from these.</p>
+
+  <div class="g3 rv mt24">
+    <div class="card card-g">
+      <div class="eyebrow" style="color:var(--sage)">Decision 1</div>
+      <h3 style="font-size:18px">Confirm the Start</h3>
+      <p style="font-size:13px;max-width:none">Confirm whether to begin at Phase 1 (₹18K) or directly at Phase 2 (₹32K). Both are valid — and we've shared our honest take on why starting at ₹32K makes better use of the 2-week window.</p>
+    </div>
+    <div class="card card-g">
+      <div class="eyebrow" style="color:var(--sage)">Decision 2</div>
+      <h3 style="font-size:18px">Start the Branding</h3>
+      <p style="font-size:13px;max-width:none">The ₹9,999 branding package can begin this week — it doesn't depend on the shoot or any other external input. We need a 30-minute call with Supriya to agree on icon direction and brand feeling. That's the only input required from the client side.</p>
+    </div>
+    <div class="card card-g">
+      <div class="eyebrow" style="color:var(--sage)">Decision 3</div>
+      <h3 style="font-size:18px">Confirm Amal's Scope</h3>
+      <p style="font-size:13px;max-width:none">A 15-minute conversation between Supriya, Amal, and Anoop to confirm: how many videos per month, what type, and what the editing turnaround will be. This determines the Phase 2 package adjustment, if any.</p>
+    </div>
+  </div>
+
+  <div class="card mt32 rv" style="text-align:center;padding:40px 32px;background:linear-gradient(135deg,var(--ink-2),rgba(14,43,28,.6));">
+    <div class="eyebrow" style="color:var(--text-dim);margin-bottom:16px">FlumenX · Anoop Krishna VA</div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;margin-bottom:10px;color:var(--cream)">Let's Build This Right.</h3>
+    <p style="max-width:500px;margin:0 auto 22px;font-size:13.5px;color:var(--text-dim)">Pranaalaya has something genuinely rare — a 4th-generation doctor, a heritage home, and a founder who built this from her own healing journey. That story deserves a brand and a digital presence that honours it.</p>
+    <div style="display:flex;gap:28px;justify-content:center;flex-wrap:wrap;">
+      <div style="text-align:left;">
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;color:var(--text-dim);text-transform:uppercase;margin-bottom:3px">Phone</div>
+        <div style="font-size:13px;color:var(--text-mid)">+91 8907 634900</div>
+      </div>
+      <div style="text-align:left;">
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;color:var(--text-dim);text-transform:uppercase;margin-bottom:3px">Email</div>
+        <div style="font-size:13px;color:var(--text-mid)">anoopkrishna@flumenx.com</div>
+      </div>
+      <div style="text-align:left;">
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;color:var(--text-dim);text-transform:uppercase;margin-bottom:3px">Web</div>
+        <div style="font-size:13px;color:var(--text-mid)">flumenx.com</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:3px;width:56px;margin:24px auto 0;">
+      <div style="flex:3;height:2px;background:var(--gold);border-radius:2px;"></div>
+      <div style="flex:2;height:2px;background:var(--sage);border-radius:2px;"></div>
+      <div style="flex:1;height:2px;background:var(--earth);border-radius:2px;"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// Nav active
+const secs=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('nav a');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navAs.forEach(a=>a.classList.remove('active'));
+      const m=document.querySelector('nav a[href="#'+e.target.id+'"]');
+      if(m)m.classList.add('active');
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'}).observe&&secs.forEach(s=>new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){navAs.forEach(a=>a.classList.remove('active'));const m=document.querySelector('nav a[href="#'+e.target.id+'"]');if(m)m.classList.add('active');}});
+},{rootMargin:'-30% 0px -60% 0px'}).observe(s));
+
+// Reveal
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ro.unobserve(e.target);}});
+},{rootMargin:'0px 0px -40px 0px',threshold:0.04});
+rvEls.forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
